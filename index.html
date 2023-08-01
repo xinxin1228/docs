@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>黄建新的个人笔记中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <!-- 设置浏览器图标 -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/docs/image/笔记本.png"
+      type="image/x-icon"
+    />
+    <!-- 默认主题 -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css"
+    />
+    <!-- 侧边栏目录折叠 箭头样式 -->
+    <!-- <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css"
+    /> -->
+    <!-- 侧边栏目录折叠 文件夹样式 -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
+    />
+    <style>
+      /* 图片居中 */
+      figure {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 定义加载时候的动作 -->
+    <div id="app">正在加载中...</div>
+    <div id="gitalk-container"></div>
+    <!-- index.html -->
+    <!-- 在github上编辑 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+    <!-- GitHub issue -->
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script>
+      window.$docsify = {
+        name: '哈哈哈', // 项目名称
+        repo: 'https://github.com/YSGStudyHards', // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
+        loadSidebar: true, // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
+        loadNavbar: true, // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
+        coverpage: true, // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
+        maxLevel: 5, // 最大支持渲染的标题层级
+        subMaxLevel: 4, // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+        mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
+        coverpage: true,
+        sidebarDisplayLevel: 0, // 设置侧边栏显示级别
+        plugins: [
+          // github编辑
+          EditOnGithubPlugin.create(
+            'https://github.com/xinxin1228/test_blog/blob/main/',
+            null,
+            '在GitHub上编辑'
+          ),
+        ],
+        // 搜索
+        search: {
+          placeholder: '快速搜索',
+          noData: '找不到结果！',
+        },
+        copyCode: {
+          buttonText: '复制',
+          errorText: '复制失败！',
+          successText: '复制成功！',
+        },
+        // 广告
+        // disqus: 'shortname',
+        // 图片居中
+        markdown: {
+          renderer: {
+            image: function (href, title, text) {
+              // 按照原来的渲染 img
+              var image_html = this.origin.image.apply(this, arguments)
+              // 用 figure 包一下图片，实现居中
+              return (
+                '<figure>' +
+                image_html +
+                '<figcaption>' +
+                text +
+                '</figcaption></figure>'
+              )
+            },
+          },
+        },
+        // 字数和阅读时长
+        count: {
+          language: 'chinese',
+        },
+        // 阅读进度
+        progress: {
+          position: 'bottom',
+          color: 'var(--theme-color,#42b983)',
+          height: '3px',
+        },
+        // 文档更新时间
+        timeUpdater: {
+          text: '>最后更新时间: {docsify-updated}',
+          formatUpdated: '{YYYY}年{MM}月{DD}日 {HH}:{mm}:{ss}',
+          whereToPlace: 'top', // "top" or "bottom", default to "bottom"
+        },
+        // 页脚
+        footer: {
+          copy: `<span>个人笔记 &copy; ${new Date().getFullYear()}</span>`,
+          auth: '黄建新',
+          pre: '<hr/>',
+          style: 'text-align: right;',
+          class: 'className',
+        },
+      }
+    </script>
+
+    <!-- emoji表情支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <!-- 图片放大缩小支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 搜索功能支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- 侧边栏目录折叠 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+    <!-- docsify的js依赖 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <!-- 广告 -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script> -->
+    <!-- 分页 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <!-- 字数和阅读时长 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+    <!-- 页脚增强 -->
+    <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+    <!-- 阅读进度 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
+    <!-- 文档更新时间 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
+  </body>
+</html>
