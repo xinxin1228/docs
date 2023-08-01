@@ -54,8 +54,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     <script>
       window.$docsify = {
-        name: '哈哈哈', // 项目名称
-        repo: 'https://github.com/YSGStudyHards', // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
+        name: '黄建新的笔记空间', // 项目名称
+        repo: 'https://github.com/xinxin1228/docs', // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
         loadSidebar: true, // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
         loadNavbar: true, // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
         coverpage: true, // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
@@ -126,6 +126,19 @@
           class: 'className',
         },
       }
+
+      // 引入 issue
+      const gitalk = new Gitalk({
+        clientID: '6ffd5bf89813714d4894',
+        clientSecret: '63d2cfe20347a1d99e819016ffaf00f498693168',
+        repo: 'docs', // The repository of store comments,
+        owner: 'xinxin1228',
+        admin: ['xinxin1228'],
+        id: 'xinxin1228-docs', // Ensure uniqueness and length less than 50
+        distractionFreeMode: false, // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
     </script>
 
     <!-- emoji表情支持 -->
@@ -152,5 +165,7 @@
     <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
     <!-- 文档更新时间 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
+    <!-- github issue -->
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
   </body>
 </html>
