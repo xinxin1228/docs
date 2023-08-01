@@ -10,7 +10,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <!-- 设置浏览器图标 -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/docs/image/笔记本.png" type="image/x-icon" />
     <link
       rel="shortcut icon"
       href="/docs/image/笔记本.png"
@@ -40,13 +40,16 @@
       figure {
         text-align: center;
       }
+      /* issue */
+      #gitalk-container {
+        margin-top: 15px;
+      }
     </style>
   </head>
 
   <body>
     <!-- 定义加载时候的动作 -->
     <div id="app">正在加载中...</div>
-    <div id="gitalk-container">1111</div>
     <!-- index.html -->
     <!-- 在github上编辑 -->
     <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
@@ -126,27 +129,6 @@
           class: 'className',
         },
       }
-
-      // 引入 issue
-      const gitalk = new Gitalk({
-        clientID: '6ffd5bf89813714d4894',
-        clientSecret: '63d2cfe20347a1d99e819016ffaf00f498693168',
-        repo: 'docs', // The repository of store comments,
-        owner: 'xinxin1228',
-        admin: ['xinxin1228'],
-        id: location.pathname.substr(0, 50), // Ensure uniqueness and length less than 50
-        distractionFreeMode: false, // Facebook-like distraction free mode
-        // title: 'docs',
-        // id: location.hash.match(/#(.*?)([?]|$)/)[1],
-      })
-
-      gitalk.render('gitalk-container')
-
-      window.onhashchange = function (event) {
-        if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-          location.reload()
-        }
-      }
     </script>
 
     <!-- emoji表情支持 -->
@@ -173,5 +155,31 @@
     <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
     <!-- 文档更新时间 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
+
+    <script>
+      window.addEventListener('load', () => {
+        const articleEl = document.querySelector('main article')
+        const containerEl = document.createElement('div')
+        containerEl.id = 'gitalk-container'
+
+        articleEl.append(containerEl)
+        console.log('xxxx', document.querySelector('main article'))
+
+        // 引入 issue
+        const gitalk = new Gitalk({
+          clientID: '6ffd5bf89813714d4894',
+          clientSecret: '63d2cfe20347a1d99e819016ffaf00f498693168',
+          repo: 'docs', // The repository of store comments,
+          owner: 'xinxin1228',
+          admin: ['xinxin1228'],
+          id: location.pathname.substr(0, 50), // Ensure uniqueness and length less than 50
+          distractionFreeMode: false, // Facebook-like distraction free mode
+          // title: 'docs',
+          // id: location.hash.match(/#(.*?)([?]|$)/)[1],
+        })
+
+        gitalk.render('gitalk-container')
+      })
+    </script>
   </body>
 </html>
