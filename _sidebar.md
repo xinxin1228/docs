@@ -1,45 +1,46 @@
 - 代码规范和风格
-  - [规范](/docs/01.md)
-  - [代码风格](/docs/02.md)
-  - [restful 风格](/docs/03.md)
+  - [规范](/docs/代码规范和风格/规范.md)
+  - [代码风格](/docs/代码规范和风格/代码风格.md)
+  - [restful 风格](/docs/代码规范和风格/restful风格.md)
 - 前端笔记
-  - [HTML 和 CSS](/docs/04.md)
-  - [JavaScript](/docs/05.md)
-  - [TypeScript](/docs/06.md)
+  - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
+  - [JavaScript](/docs/前端笔记/JavaScript.md)
+  - [TypeScript](/docs/前端笔记/TypeScript.md)
 - 前端框架
 
-  - vue
-    - vue2
-    - vue3
-      - js 版本
-      - ts 版本
-  - react
-    - js 版本
-    - ts 版本
+  - Vue
+    - [Vue2](/docs/前端框架/Vue/Vue2.md)
+    - Vue3
+      - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3/Vue3+JavaScript.md)
+      - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3/Vue3+TypeScript.md)
+  - React
+    - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
+    - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
 
-- node 相关
-  - express
-  - koa
-  - nest
+- Node 相关
+  - [Express](/docs/Node相关/Express.md)
+  - [Koa](/docs/Node相关/Koa.md)
+  - [NestJs](/docs/Node相关/NestJs.md)
 - 数据库
 
-  - MongoDB
-  - MySQL
+  - [MongoDB](/docs/数据库/MongoDB.md)
+  - [MySQL](/docs/数据库/MySQL.md)
+  - [Redis](/docs/数据库/Redis.md)
 
-- Git 和 Github
+- Git 和 GitHub
 
-  - git 总结
-  - github 操作指南
+  - [Git 总结](/docs/Git和GitHub/Git总结.md)
+  - [GitHub 操作指南](/docs/Git和GitHub/GitHub操作指南.md)
 
 - 服务器相关
-  - pm2
-  - nginx
-  - jenkins
+  - [Nginx](/docs/服务器相关/Nginx.md)
+  - [Pm2](/docs/服务器相关/Pm2.md)
+  - [Jenkins](/docs/服务器相关/Jenkins.md)
+  - [MongoDB](/docs/服务器相关/MongoDB.md)
+  - [MySql8.0](/docs/服务器相关/MySQL8.0.md)
 - 年终总结
 
   - 2023 年年终总结
 
-- [01 大标题](/docs/01.md) <!--注意这里是相对路径 如果有多层的话也是一样的规则-->
-  - [02 大标题](/docs/02.md) <!--注意这里是相对路径 如果有多层的话也是一样的规则-->
-  - [03 大标题](/docs/03.md) <!--注意这里是相对路径 如果有多层的话也是一样的规则-->
-- [js 总结](/docs/js%E6%80%BB%E7%BB%93.md)
+- 随心所记
+  - 关于程序员寒冬的思考

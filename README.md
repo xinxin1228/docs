@@ -12,4 +12,4 @@
 ### 前端笔记
 
 [Javascript 笔记]() <br />
-[Javascript 笔记]()
+[Typescript 笔记]()

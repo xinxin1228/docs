@@ -70,7 +70,7 @@
         plugins: [
           // github编辑
           EditOnGithubPlugin.create(
-            'https://github.com/xinxin1228/test_blog/blob/main/',
+            'https://github.com/xinxin1228/docs/blob/main/',
             null,
             '在GitHub上编辑'
           ),
@@ -164,7 +164,6 @@
           containerEl.id = 'gitalk-container'
 
           articleEl.append(containerEl)
-          console.log(articleEl)
           // 引入 issue
           const gitalk = new Gitalk({
             clientID: '6ffd5bf89813714d4894',
@@ -180,8 +179,8 @@
 
           gitalk.render('gitalk-container')
         }
-
         getIssue()
+
         let oldUrl
         window.addEventListener('hashchange', () => {
           const url = location.href.split('?')[0]
