@@ -55,6 +55,7 @@
     <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
     <!-- GitHub issue -->
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script src="./plugins/md5.js"></script>
     <script>
       window.$docsify = {
         name: '黄建新的笔记空间', // 项目名称
@@ -171,7 +172,8 @@
             repo: 'docs', // The repository of store comments,
             owner: 'xinxin1228',
             admin: ['xinxin1228'],
-            id: location.href.split('?')[0].substr(0, 50), // Ensure uniqueness and length less than 50
+            // id: location.href.split('?')[0].substr(0, 50), // Ensure uniqueness and length less than 50
+            id: md5(Location.href), // Ensure uniqueness and length less than 50
             distractionFreeMode: false, // Facebook-like distraction free mode
             // title: 'docs',
             // id: location.hash.match(/#(.*?)([?]|$)/)[1],
@@ -184,7 +186,6 @@
         let oldUrl
         window.addEventListener('hashchange', () => {
           const url = location.href.split('?')[0]
-
           if (oldUrl !== url) {
             setTimeout(getIssue, 1000)
 
