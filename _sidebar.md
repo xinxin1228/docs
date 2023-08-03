@@ -1,11 +1,14 @@
-- 代码规范和风格
-  - [规范](/docs/代码规范和风格/规范.md)
-  - [代码风格](/docs/代码规范和风格/代码风格.md)
-  - [restful 风格](/docs/代码规范和风格/restful风格.md)
+- 项目规范和风格
+  - [代码规范](/docs/项目规范和风格/代码规范.md)
+  - [代码风格](/docs/项目规范和风格/代码风格.md)
+  - [Git 规范](/docs/项目规范和风格/Git规范.md)
+  - [API 接口规范](/docs/项目规范和风格/API接口规范.md)
 - 前端笔记
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
+  - [Webpack](/docs/前端笔记/Webpack.md)
+  - [微信小程序](/docs/前端笔记/微信小程序.md)
 - 前端框架
 
   - Vue
