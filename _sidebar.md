@@ -15,6 +15,7 @@
   - Vue
     - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
     - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
+    - [Vue3 项目搭建](/docs/前端框架/Vue/Vue3项目搭建.md)
   - React
     - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
     - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
