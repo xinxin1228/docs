@@ -1,136 +1,14 @@
-## React18-TypeScript结合使用
 
-#### 安装
+
+## 安装
 
 ```tsx
 npx create-react-app 项目名称 --template typescipt 
 ```
 
-#### 安装Prettier
+## 路由
 
-```shell
-// 安装prettier  并且版本锁定，安装开发依赖
-npm install --save-dev --save-exact prettier
-
-// 在根目录创建 .prettierrc 规则文件
-{
-  "useTabs": false,
-  "tabWidth": 2,
-  "printWidth": 80,
-  "singleQuote": true,
-  "trailingComma": "none",
-  "semi": false
-}
-
-// 在根目录创建 .prettierignore 忽略规则文件
-build
-coverage
-
-// 安装Pre-commit Hook，实现每次代码提交前自动格式化
-
-npx mrm@ lint-staged
-// 这一行会同时安装husky和lint-stage，并自动生成.husky/pre-commit文件
-
-// 由于React项目自带Eslint, 安装eslint-config-prettier ，解决eslint和prettier规则冲突
-npm install --save-dev eslint-config-prettier
-
-// 在package.json中增加
-"eslintConfig": {
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "prettier" //新增加内容，替换部分eslint规则
-  ]
- },
-```
-
-#### 配置别名
-
-```tsx
-// 安装
-npm install @craco/craco --save-dev
-npm install craco-less --save-dev
-
-// 在根目录上新建craco.config.js
-const CracoLessPlugin = require("craco-less")
-const path = require("path")
-
-const resolve = (dir) => path.resolve(__dirname, dir)
-
-module.exports = {
-  webpack: {
-    alias: {
-      "@": resolve("src"),
-      "components": resolve("src/components")
-    },
-  },
-}
-
-// 修改packjson下的script内容
-"scripts": {
-  "start": "craco start",
-  "build": "craco build",
-  "test": "craco test",
-  "eject": "react-scripts eject"
-},
-
-// 由于这是ts文件，配置完 @ 之后还无法在项目中直接使用，需要配置
-  
-1. 配置tsconfig.json 让vscode和React识别@
-// tsconfig.json
-{
-    "compilerOptions": {
-        "baseUrl": "./",
-        "paths": {
-          "@/*": ["src/*"]
-        }
-    },
-    "exclude": [
-        "node_modules"
-    ]
-}
-```
-
-#### 安装顶部进度条nprogress
-
-```js
-// 安装
-npm install nprogress --save && npm install @types/nprogress --save-dev
-
-// 使用
-// 顶部进度条
-import React, { memo, useEffect } from 'react'
-import nprogress from 'nprogress'
-import 'nprogress/nprogress.css'
-
-//进度条配置
-nprogress.configure({
-  easing: 'ease', // 动画方式
-  speed: 500, // 递增进度条的速度
-  showSpinner: true, // 是否显示加载ico
-  trickleSpeed: 200, // 自动递增间隔
-  minimum: 0.3 // 初始化时的最小百分比
-})
-
-const TopLoading: React.FC = memo(() => {
-  useEffect(() => {
-    nprogress.start()
-
-    return () => {
-      nprogress.done()
-    }
-  }, [])
-
-  return <></>
-})
-
-export default TopLoading
-
-```
-
-
-
-#### 安装react-router
+### 安装react-router
 
 ```tsx
 npm install react-router-dom --save
@@ -223,7 +101,129 @@ root.render(
 
 ```
 
-#### 使用Redux
+### react-router-dom6使用动画路由
+
+```tsx
+// 第一步 改变 src/router/index.tsx 文件
+
+
+// 改变方式如下，给每一个routes 下的 route 列表添加 nodeRef 字段， 
+
+import { createRef } from 'react'
+import { useRoutes } from 'react-router-dom'
+
+import { lazyLoadRouter } from '@/utils/lazy-router'
+import Layout from '../layout'
+
+export const routes = [
+  {
+    path: '/',
+    element: <Layout />,
+    nodeRef: createRef(),
+    children: [
+      {
+        path: '',
+        element: lazyLoadRouter('home'),
+        nodeRef: createRef()
+      },
+      {
+        path: '/admin/question',
+        element: lazyLoadRouter('admin/question'),
+        nodeRef: createRef()
+      },
+      {
+        path: '*',
+        element: lazyLoadRouter('notFound'),
+        nodeRef: createRef()
+      }
+    ]
+  }
+]
+
+export const GetRoutes = () => {
+  return useRoutes(routes)
+}
+
+// 第二步 在 src/index.tsx 的引入方式和上面的一样
+
+// 第三步 不再 使用 Outlet 组件显示内容 而是改为 useOutlet
+import React, { memo, useState } from 'react'
+import { useOutlet, useNavigate, useLocation } from 'react-router-dom'
+import { SwitchTransition, CSSTransition } from 'react-transition-group'
+import { Layout } from 'antd'
+import {
+  WindowsOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined
+} from '@ant-design/icons'
+
+import { SiderMenu, Crumbs, UserInfo } from '@/components'
+import { LayoutStyled } from './style'
+import { routes } from '@/router'
+
+const { Header, Sider } = Layout
+
+const LayoutCom = memo(() => {
+  const location = useLocation()
+  const currentOutlet = useOutlet()
+
+  const { nodeRef } =
+    routes.find((route) => route.path === location.pathname) ?? {}
+
+  return (
+    <LayoutStyled>
+      <SwitchTransition>
+        <CSSTransition
+          key={location.pathname}
+          nodeRef={nodeRef as any}
+          timeout={300}
+          classNames="page"
+          unmountOnExit
+          appear
+          >
+          {(state) => (
+            <div ref={nodeRef as any} className="page">
+              {currentOutlet}
+            </div>
+          )}
+        </CSSTransition>
+      </SwitchTransition>
+    </LayoutStyled>
+  )
+})
+
+export default LayoutCom
+
+
+// 动画样式如下：
+/* 动画 */
+.page-enter,
+.page-appear {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+.page-enter-active,
+  .page-appear-active {
+    opacity: 1;
+    transition: opacity 300ms, transform 300ms;
+    transform: translateX(0px);
+  }
+.page-exit {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-25px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+
+```
+
+## Redux
+
+### 使用Redux
 
 ```tsx
 // react18中发生了重大的改革，不再推荐从redux中导出createStore，而是改用使用工具 @reduxjs/toolkit，并且在redux模块的书写方式也发生了巨大变化，不再书写reducer和action文件，而是将它们合在了一起，只需一个文件，并且内置了immutable，无须手动引入
@@ -408,7 +408,7 @@ export default App
 
 ```
 
-#### RTK中在extraReducers中使用reducers
+### RTK中在extraReducers中使用reducers
 
 ```tsx
 export const noticeSlice = createSlice({
@@ -434,14 +434,142 @@ export const noticeSlice = createSlice({
 
 ```
 
-#### 使用styled-components
+#### 
+
+## 开发经验
+
+### 安装Prettier
+
+```shell
+// 安装prettier  并且版本锁定，安装开发依赖
+npm install --save-dev --save-exact prettier
+
+// 在根目录创建 .prettierrc 规则文件
+{
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "semi": false
+}
+
+// 在根目录创建 .prettierignore 忽略规则文件
+build
+coverage
+
+// 安装Pre-commit Hook，实现每次代码提交前自动格式化
+
+npx mrm@ lint-staged
+// 这一行会同时安装husky和lint-stage，并自动生成.husky/pre-commit文件
+
+// 由于React项目自带Eslint, 安装eslint-config-prettier ，解决eslint和prettier规则冲突
+npm install --save-dev eslint-config-prettier
+
+// 在package.json中增加
+"eslintConfig": {
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "prettier" //新增加内容，替换部分eslint规则
+  ]
+ },
+```
+
+### 配置别名
+
+```tsx
+// 安装
+npm install @craco/craco --save-dev
+npm install craco-less --save-dev
+
+// 在根目录上新建craco.config.js
+const CracoLessPlugin = require("craco-less")
+const path = require("path")
+
+const resolve = (dir) => path.resolve(__dirname, dir)
+
+module.exports = {
+  webpack: {
+    alias: {
+      "@": resolve("src"),
+      "components": resolve("src/components")
+    },
+  },
+}
+
+// 修改packjson下的script内容
+"scripts": {
+  "start": "craco start",
+  "build": "craco build",
+  "test": "craco test",
+  "eject": "react-scripts eject"
+},
+
+// 由于这是ts文件，配置完 @ 之后还无法在项目中直接使用，需要配置
+  
+1. 配置tsconfig.json 让vscode和React识别@
+// tsconfig.json
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+          "@/*": ["src/*"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+```
+
+### 安装顶部进度条nprogress
+
+```js
+// 安装
+npm install nprogress --save && npm install @types/nprogress --save-dev
+
+// 使用
+// 顶部进度条
+import React, { memo, useEffect } from 'react'
+import nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
+
+//进度条配置
+nprogress.configure({
+  easing: 'ease', // 动画方式
+  speed: 500, // 递增进度条的速度
+  showSpinner: true, // 是否显示加载ico
+  trickleSpeed: 200, // 自动递增间隔
+  minimum: 0.3 // 初始化时的最小百分比
+})
+
+const TopLoading: React.FC = memo(() => {
+  useEffect(() => {
+    nprogress.start()
+
+    return () => {
+      nprogress.done()
+    }
+  }, [])
+
+  return <></>
+})
+
+export default TopLoading
+
+```
+
+
+
+### 使用styled-components
 
 ```shell
 npm install styled-components --save
 npm install @types/styled-components --save-dev
 ```
 
-#### 使用 animate.css实现后台系统中页面之间的切换
+### 使用 animate.css实现后台系统中页面之间的切换
 
 ```js
 npm install react-transition-group -S
@@ -450,9 +578,7 @@ npm install animate.css --save
  
 ```
 
-
-
-#### 使用styled-components组件传递的props
+### 使用styled-components组件传递的props
 
 ```tsx
 // index.tsx
@@ -479,7 +605,7 @@ export const ListStyled = styled('div')<ListType>`
 
 
 
-#### 二次封装axios
+### 二次封装axios
 
 ```tsx
 // axios.tsx
@@ -568,7 +694,7 @@ export default axios
 
 ```
 
-#### 配置跨域
+### 配置跨域
 
 ```tsx
 // 方法一：
@@ -584,122 +710,3 @@ export default axios
 // 方法二：
 ```
 
-#### react-router-dom6使用动画路由
-
-```tsx
-// 第一步 改变 src/router/index.tsx 文件
-
-
-// 改变方式如下，给每一个routes 下的 route 列表添加 nodeRef 字段， 
-
-import { createRef } from 'react'
-import { useRoutes } from 'react-router-dom'
-
-import { lazyLoadRouter } from '@/utils/lazy-router'
-import Layout from '../layout'
-
-export const routes = [
-  {
-    path: '/',
-    element: <Layout />,
-    nodeRef: createRef(),
-    children: [
-      {
-        path: '',
-        element: lazyLoadRouter('home'),
-        nodeRef: createRef()
-      },
-      {
-        path: '/admin/question',
-        element: lazyLoadRouter('admin/question'),
-        nodeRef: createRef()
-      },
-      {
-        path: '*',
-        element: lazyLoadRouter('notFound'),
-        nodeRef: createRef()
-      }
-    ]
-  }
-]
-
-export const GetRoutes = () => {
-  return useRoutes(routes)
-}
-
-// 第二步 在 src/index.tsx 的引入方式和上面的一样
-
-// 第三步 不再 使用 Outlet 组件显示内容 而是改为 useOutlet
-import React, { memo, useState } from 'react'
-import { useOutlet, useNavigate, useLocation } from 'react-router-dom'
-import { SwitchTransition, CSSTransition } from 'react-transition-group'
-import { Layout } from 'antd'
-import {
-  WindowsOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined
-} from '@ant-design/icons'
-
-import { SiderMenu, Crumbs, UserInfo } from '@/components'
-import { LayoutStyled } from './style'
-import { routes } from '@/router'
-
-const { Header, Sider } = Layout
-
-const LayoutCom = memo(() => {
-  const location = useLocation()
-  const currentOutlet = useOutlet()
-
-  const { nodeRef } =
-    routes.find((route) => route.path === location.pathname) ?? {}
-
-  return (
-    <LayoutStyled>
-      <SwitchTransition>
-        <CSSTransition
-          key={location.pathname}
-          nodeRef={nodeRef as any}
-          timeout={300}
-          classNames="page"
-          unmountOnExit
-          appear
-          >
-          {(state) => (
-            <div ref={nodeRef as any} className="page">
-              {currentOutlet}
-            </div>
-          )}
-        </CSSTransition>
-      </SwitchTransition>
-    </LayoutStyled>
-  )
-})
-
-export default LayoutCom
-
-
-// 动画样式如下：
-/* 动画 */
-.page-enter,
-.page-appear {
-    opacity: 0;
-    transform: translateX(-25px);
-  }
-.page-enter-active,
-  .page-appear-active {
-    opacity: 1;
-    transition: opacity 300ms, transform 300ms;
-    transform: translateX(0px);
-  }
-.page-exit {
-  opacity: 1;
-  transform: translateX(0px);
-}
-.page-exit-active {
-  opacity: 0;
-  transform: translateX(-25px);
-  transition: opacity 300ms, transform 300ms;
-}
-
-
-```

@@ -2917,11 +2917,17 @@ axios.get("/admin/get/hotArticle")
 
 ![](https://img-blog.csdnimg.cn/61cda6a5faeb484487b7eb012c306275.png)
 
-![](https://img-blog.csdnimg.cn/adc0a0d7fb2b49738313ef25b8b9b175.png)
-
-![](C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20220512202238077.png)
-
-![](C:/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20220512202312117.png)
+- CSSTransition是基于Transition组件构建的
+- CSSTransition执行过程中，有三个状态：appear、enter、 exit:
+  它们有三种状态，需要定义对应的CSS样式：
+  - 第一类，开始状态：对于的类是-appear -enter、 exit：
+  - 第二类：执行动画：对应的类是-appear-active、 -enter-active、 -exit-active:
+  - 第三类：执行结束：对应的类是-appear-done. -enter-done、 -exit-done
+- CSSTransition常见对应的属性：
+- in：触发进入或者退出状态
+    - 如果添加了unmountOnExit=(true)，那么该组件会在执行退出动画结東后被移除掉；
+    -  当in为true时，触发进入状态，会添加-enter、-enter-acitve的class开始执行动画，当动画执行结束后，会移除两个class，并且添加-enter-done的class；
+    - 当in为false时，触发退出状态，会添加-exit. -exit-active的class开始执行动画，当动画执行结束后，会移除两个class，并且添加-enter-done的class；
 
 ```jsx
 // 一共方便我们做过渡效果的库
