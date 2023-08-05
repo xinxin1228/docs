@@ -9,6 +9,7 @@
   - [TypeScript](/docs/前端笔记/TypeScript.md)
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
+  - [计算机网络](/docs/前端笔记/计算机网络.md)
 - 前端框架
 
   - Vue
@@ -17,6 +18,8 @@
   - React
     - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
     - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
+  - qiankun
+    - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
 
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
@@ -41,6 +44,7 @@
   - [Jenkins](/docs/服务器相关/Jenkins.md)
   - [MongoDB](/docs/服务器相关/MongoDB.md)
   - [MySql8.0](/docs/服务器相关/MySQL8.0.md)
+  - [Node](/docs/服务器相关/Node.md)
 - 年终总结
 
   - 2023 年年终总结
