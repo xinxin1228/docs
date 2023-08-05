@@ -12,15 +12,15 @@
 - 前端框架
 
   - Vue
-    - [Vue2](/docs/前端框架/Vue/Vue2.md)
-    - Vue3
-      - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3/Vue3+JavaScript.md)
-      - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3/Vue3+TypeScript.md)
+    - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
+    - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
   - React
     - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
     - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
 
 - Node 相关
+  - [包管理工具](/docs/Node相关/包管理工具.md)
+  - [nvm](/docs/Node相关/nvm.md)
   - [Express](/docs/Node相关/Express.md)
   - [Koa](/docs/Node相关/Koa.md)
   - [NestJs](/docs/Node相关/NestJs.md)
