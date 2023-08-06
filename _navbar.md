@@ -1,23 +1,27 @@
-- 代码规范和风格
-  - [规范](/docs/代码规范和风格/规范.md)
-  - [代码风格](/docs/代码规范和风格/代码风格.md)
-  - [restful 风格](/docs/代码规范和风格/restful风格.md)
+- 项目规范和风格
+  - [代码规范](/docs/项目规范和风格/代码规范.md)
+  - [代码风格](/docs/项目规范和风格/代码风格.md)
+  - [Git 规范](/docs/项目规范和风格/Git规范.md)
+  - [API 接口规范](/docs/项目规范和风格/API接口规范.md)
 - 前端笔记
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
+  - [Webpack](/docs/前端笔记/Webpack.md)
+  - [微信小程序](/docs/前端笔记/微信小程序.md)
+  - [计算机网络](/docs/前端笔记/计算机网络.md)
 - 前端框架
 
-  - Vue
-    - [Vue2](/docs/前端框架/Vue/Vue2.md)
-    - Vue3
-      - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3/Vue3+JavaScript.md)
-      - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3/Vue3+TypeScript.md)
-  - React
-    - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
-    - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
+  - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
+  - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
+  - [Vue3 项目搭建](/docs/前端框架/Vue/Vue3项目搭建.md)
+  - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
+  - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
+  - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
 
 - Node 相关
+  - [包管理工具](/docs/Node相关/包管理工具.md)
+  - [nvm](/docs/Node相关/nvm.md)
   - [Express](/docs/Node相关/Express.md)
   - [Koa](/docs/Node相关/Koa.md)
   - [NestJs](/docs/Node相关/NestJs.md)
@@ -38,6 +42,7 @@
   - [Jenkins](/docs/服务器相关/Jenkins.md)
   - [MongoDB](/docs/服务器相关/MongoDB.md)
   - [MySql8.0](/docs/服务器相关/MySQL8.0.md)
+  - [Node](/docs/服务器相关/Node.md)
 - 年终总结
 
   - 2023 年年终总结
