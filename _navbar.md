@@ -12,12 +12,15 @@
   - [计算机网络](/docs/前端笔记/计算机网络.md)
 - 前端框架
 
-  - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
-  - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
-  - [Vue3 项目搭建](/docs/前端框架/Vue/Vue3项目搭建.md)
-  - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
-  - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
-  - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
+  - Vue
+    - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
+    - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
+    - [Vue3 项目搭建](/docs/前端框架/Vue/Vue3项目搭建.md)
+  - React
+    - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
+    - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
+  - qiankun
+    - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
 
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
@@ -43,6 +46,8 @@
   - [MongoDB](/docs/服务器相关/MongoDB.md)
   - [MySql8.0](/docs/服务器相关/MySQL8.0.md)
   - [Node](/docs/服务器相关/Node.md)
+- 开发技巧
+  - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
 - 年终总结
 
   - 2023 年年终总结

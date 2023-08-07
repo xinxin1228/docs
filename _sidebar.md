@@ -46,6 +46,8 @@
   - [MongoDB](/docs/服务器相关/MongoDB.md)
   - [MySql8.0](/docs/服务器相关/MySQL8.0.md)
   - [Node](/docs/服务器相关/Node.md)
+- 开发技巧
+  - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
 - 年终总结
 
   - 2023 年年终总结
