@@ -6,6 +6,7 @@
 - 前端笔记
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
+  - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
