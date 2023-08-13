@@ -6,21 +6,19 @@
 - 前端笔记
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
+  - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
   - [计算机网络](/docs/前端笔记/计算机网络.md)
 - 前端框架
 
-  - Vue
-    - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
-    - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
-    - [Vue3 项目搭建](/docs/前端框架/Vue/Vue3项目搭建.md)
-  - React
-    - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
-    - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
-  - qiankun
-    - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
+  - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
+  - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
+  - [Vue3 项目搭建](/docs/前端框架/Vue/Vue3项目搭建.md)
+  - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
+  - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
+  - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
 
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
