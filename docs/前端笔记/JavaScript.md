@@ -2851,6 +2851,12 @@ console.log(obj instanceof info) // TypeError
 
 ```js
 // 对象的隐式转化，需要看里面是否含有valueOf属性和toString属性，如果有的话，优先使用里面的值
+// 对于字符串转换，优先调用toString
+// 对于数学运算，优先调用valueOf
+
+// 默认情况下，普通对象具有 toString 和 valueOf 方法：
+// toString 方法返回一个字符串 "[object Object]"
+// valueOf 返回对象自身  obj.valueOf() === obj
 
 xxx[
   obj
