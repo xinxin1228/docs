@@ -3328,11 +3328,15 @@ const arr = [1, 2, 3, 4]
 console.log('数组转Map', new Map(arr.entries())) // 数组转map Map(4) {0 => 1, 1 => 2, 2 => 3, 3 => 4}
 
 // Map转对象
+// 方法一
 const obj = {}
 map.forEach((value, key) => {
   obj[key] = value
 })
 console.log('Map转对象', obj) // Map转对象 {key1: 'value1', key2: 'value2'}
+// 方法二
+console.log(Object.fromEntries(map))
+
 
 // 对象转Map
 const obj = {
