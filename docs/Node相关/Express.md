@@ -98,6 +98,11 @@ fs.readdir("./text",(err,file)=>{
   })
 })
 
+// 读取文件夹内里所有文件
+fs.readdirSync(path.join(__dirname, '../../public'))
+
+// 删除文件夹内的所有文件，但是保留文件夹本身
+
 fs.mkdir("./text",err=>{})    // 创建目录
 
 fs.rename("./dir/text","./dir/txt",err=>{})  //重命名
@@ -790,6 +795,100 @@ router.post("/phone",async(req,res)=>{
 
 // 上传多个和上传一个一样 
 ```
+
+### 上传多张图片
+
+```js
+// 对上传方法进行封装 使其可以自定义上传的路径和上传数量
+
+// utils/upload.js
+
+/**
+ * 上传文件
+ * @param {string} path 上传路径 基于public
+ * @param {number} maxCount 上传文件的最大数量，为0时表示不限制
+ */
+const upload = (path = '', maxCount = 3) => {
+  return new Promise(resolve => {
+    const upload = multer({
+      storage: multer.diskStorage({
+        // 文件存储的目录
+        destination(req, file, cb) {
+          cb(null, join(__dirname, '../../public/' + path))
+        },
+        // 文件的名字
+        filename(req, file, cb) {
+          console.log('🚀  ~ file: upload.js:18 ~ filename ~ file:', file)
+
+          let name = file.originalname.slice(
+            0,
+            file.originalname.lastIndexOf('.')
+          )
+          let ext = extname(file.originalname)
+          req.coverFile = name + ext
+          cb(null, req.coverFile) //名字
+        },
+      }),
+    })
+
+    if (maxCount) {
+      resolve(upload.array('file', maxCount))
+    } else {
+      resolve(upload.array('file'))
+    }
+  })
+}
+
+
+
+// 使用
+const express = require('express')
+const path = require('path')
+const { upload } = require('upload')
+const router = express.Router()
+
+// 上传
+router.post('/upload', async (req, res) => {
+  try {
+    const maxCount = 5
+    removeFiles(path.resolve(__dirname, '../../public/'))
+    const uploadFile = await upload('', maxCount)
+
+    uploadFile(req, res, err => {
+      console.log(req.files)
+      if (maxCount && req.files?.length >= maxCount) {
+        return res.send({
+          code: 1,
+          mes: `上传的最大的图片数量不能超过${maxCount}张`,
+        })
+      }
+      if (err) {
+        return res.send({
+          code: 1,
+          mes: '上传失败',
+          err,
+        })
+      }
+
+      res.send({
+        code: 0,
+        mes: '上传成功',
+      })
+    })
+  } catch (err) {
+    console.log(err)
+    res.status(500).send({
+      mes: err,
+    })
+  }
+})
+
+
+module.exports = router
+
+```
+
+
 
 ### 结合Token上传
 
