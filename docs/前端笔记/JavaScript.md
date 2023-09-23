@@ -2851,6 +2851,12 @@ console.log(obj instanceof info) // TypeError
 
 ```js
 // 对象的隐式转化，需要看里面是否含有valueOf属性和toString属性，如果有的话，优先使用里面的值
+// 对于字符串转换，优先调用toString
+// 对于数学运算，优先调用valueOf
+
+// 默认情况下，普通对象具有 toString 和 valueOf 方法：
+// toString 方法返回一个字符串 "[object Object]"
+// valueOf 返回对象自身  obj.valueOf() === obj
 
 xxx[
   obj
@@ -3322,11 +3328,15 @@ const arr = [1, 2, 3, 4]
 console.log('数组转Map', new Map(arr.entries())) // 数组转map Map(4) {0 => 1, 1 => 2, 2 => 3, 3 => 4}
 
 // Map转对象
+// 方法一
 const obj = {}
 map.forEach((value, key) => {
   obj[key] = value
 })
 console.log('Map转对象', obj) // Map转对象 {key1: 'value1', key2: 'value2'}
+// 方法二
+console.log(Object.fromEntries(map))
+
 
 // 对象转Map
 const obj = {
