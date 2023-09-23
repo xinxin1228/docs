@@ -1,10 +1,8 @@
 > 本练习对应的 GitHub 仓库： https://github.com/xinxin1228/js-combat-practice
 
-## 面向对象
+## 渲染自定义 HTML 组件
 
-### 渲染自定义 HTML 组件
-
-#### 需求描述
+### 需求描述
 
 - 在`html`模版里直接编写**自定义、非`html`**的标签元素，并且支持多种写法。
 
@@ -18,7 +16,7 @@
 
   `<my-button type='primary' onClick='handleClick'></my-button>`中，`type`指定按钮的状态类型，比如`primary`、`error`等，`onClick`代表给该自定义元素绑定的事件类型
 
-#### 准备工作
+### 准备工作
 
 自定义标签`html`代码
 
@@ -36,25 +34,25 @@
 </div>
 ```
 
-#### 效果展示
+### 效果展示
 
 渲染自定义标签之前的页面样式和控制台的中`html`结构
 
-##### 渲染之前
+#### 渲染之前
 
 ![渲染之前](../image/前端笔记/24.jpg)
 
-##### 渲染之后
+#### 渲染之后
 
 ![渲染之后](../image/前端笔记/25.jpg)
 
-#### 仓库地址
+### 仓库地址
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/%E6%B8%B2%E6%9F%93%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6
 
-### Store 实现多个 class 之间数据共享
+## Store 实现多个 class 之间数据共享
 
-#### 需求描述
+### 需求描述
 
 - 封装一个高阶类，可以获取数据和存储数据，提供一下的方法
 
@@ -77,14 +75,14 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/%E6%B8%B2%E6%9F%93%E8
 
 - 通过该高阶类，可以做到在多个类中数据进行流通
 
-#### 所用的知识
+### 所用的知识
 
 **HOC 高阶类**
 
 1. 在父类使用子类才有的东西
 2. 类写完不直接用，而是进行包裹
 
-#### 效果展示
+### 效果展示
 
 ```js
 import { store } from './Store.js'
@@ -102,17 +100,17 @@ console.log(a.get('name')) // 'web'
 console.log(b.get('name')) // 'web'
 ```
 
-#### 仓库地址
+### 仓库地址
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/Store
 
-### 生成虚拟 DOM
+## 生成虚拟 DOM
 
-#### 需求描述
+### 需求描述
 
 > 现在主流框架，无论是`vue`还是`react`都采用了虚拟 DOM 技术
 
-#### 采用虚拟 DOM 的优势
+### 采用虚拟 DOM 的优势
 
 - 简单方便：如果使用手动操作真实 **DOM** 来完成页面，繁琐又容易出错，在大规模应用下维护起来也很困难
 - 性能方面：使用**Virtual** **DOM**，能够有效避免真实**DOM** 频繁更新，减少多次引起重绘与回流，提高性能
@@ -120,9 +118,9 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/Store
 
 既然**虚拟 DOM**现在已然是前端的热门话题，而且面试时，时常要求手写出一个真实 DOM 的虚拟 DOM，那么本节的主题就是**手写一个 class 来实现从真实 DOM 抽象为虚拟 DOM**
 
-#### 效果展示
+### 效果展示
 
-##### 真实 DOM
+#### 真实 DOM
 
 ```html
 <div id="app">
@@ -136,7 +134,7 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/Store
 </div>
 ```
 
-##### 虚拟 DOM
+#### 虚拟 DOM
 
 > 本效果只展示虚拟 DOM 的应该有的结构和数据，实际生成的虚拟 DOM 可以不完全参考该案例
 
@@ -199,9 +197,9 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/Store
 ]
 ```
 
-#### 解题思路
+### 解题思路
 
-##### 一：我们需要几个类来管理 VDOM？
+#### 一：我们需要几个类来管理 VDOM？
 
 经过我们上面的写的`VDOM`抽象，发现`VDOM`其实主要分为两大类，分别是
 
@@ -216,21 +214,21 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/Store
 
 ![类关系说明](../image/前端笔记/26.png)
 
-##### 二：真实 DOM 转 VDOM 的入口应该是哪个类？
+#### 二：真实 DOM 转 VDOM 的入口应该是哪个类？
 
 - 首先 VNode 是抽象类，因此它并不能做真实 DOM 的入口来使用
 - VText 是专门处理文本类型的 VDOM 类，因此并不适合当作真实 DOM 的入口来使用
 - VElement 是处理非文本节点的类，而真实的 DOM 节点（上述案例）是`DIV`节点，因此我们可以使用 VElement 作为入口
 
-#### 仓库地址
+### 仓库地址
 
 具体的解法和环境初始化请移步至案例的具体仓库地址：
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/%E7%94%9F%E6%88%90%E8%99%9A%E6%8B%9FDOM
 
-### 封装 Touch 库
+## 封装 Touch 库
 
-#### 需求描述
+### 需求描述
 
 - 封装一个 Touch 事件的相关库，要求可以监听`touchstart`、`touchmove`和`touchsend`事件。
 
@@ -239,17 +237,48 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/%E7%94%9F%E6%88%90%E8
 - 要求可以满足用户基本配置，比如决定滚动的方向、定义回弹动画时长等。
 - 根据自己封装的 Touch 库，实现一个纵向滚动条的上拉加载、下拉刷新、一个弹性拖拽轮播图。具体效果演示看下面的 **效果展示**
 
-#### 所用的知识
+### 所用的知识
 
 1. `touch`相关操作的 API
 2. 自定义事件队列
 
-#### 效果展示
+### 效果展示
 
 ![效果展示GIF](../image/前端笔记/01.gif)
 
-#### 仓库地址
+### 仓库地址
 
 具体的解法和环境初始化请移步至案例的具体仓库地址：
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/%E5%B0%81%E8%A3%85Touch%E5%BA%93
+
+## Ajax
+
+### 需求描述
+
+- 文件的上传和下载是每一位前端开发者最基础的技能。
+- 往大了说，就是`ajax`请求的数据交互，一般我们在工程化的前端开发模式下，都是使用`axios`这个库，那么我们如何使用**原生**的`ajax`来实现数据交互呢？
+- 对于大型文件的上传和下载，我们会使用`loading`效果来暂缓用户的焦虑，但是有些时候用户更想清楚的知道上传和下载的进度，这个时候需要我们时刻反馈给用户的进度。
+
+### 所用的知识
+
+- `XMLHttpRequest`
+
+- `fetch`
+
+- `formData`
+- 事件队列
+- `RESTful API`
+- `node`
+
+### 效果展示
+
+![input[file]选择文件并且反显桌面](../image/前端笔记/02.gif)
+
+![实现上传的进度条xhr版](../image/前端笔记/03.gif)
+
+![实现下载的进度条fetch版](../image/前端笔记/04.gif)
+
+### 仓库地址
+
+https://github.com/xinxin1228/js-combat-practice/tree/main/Store
