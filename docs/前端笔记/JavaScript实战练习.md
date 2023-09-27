@@ -279,6 +279,8 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/%E5%B0%81%E8%A3%85Tou
 
 ![实现下载的进度条fetch版](../image/前端笔记/04.gif)
 
+![拖拽自动上传与拖拽手动上传，可取消上传](../image/前端笔记/05.gif)
+
 ### 仓库地址
 
 具体的解法和环境初始化请移步至案例的具体仓库地址：
