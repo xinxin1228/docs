@@ -3925,7 +3925,7 @@ obj.next().value.then(res => {
 
 // get
 fetch('http://localhost:3000')
-.then(res => res.text())
+.then(res => res.json())
 .then(res => console.log('获取的对象', text))
 .catch(err => console.log(err))
 
