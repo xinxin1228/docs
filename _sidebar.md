@@ -11,6 +11,7 @@
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
   - [计算机网络](/docs/前端笔记/计算机网络.md)
+  - [Webpack 搭建工程化项目](/docs/前端笔记/Webpack搭建工程化项目.md)
 - 前端框架
 
   - Vue
@@ -51,7 +52,7 @@
 
   - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
   - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
-  
+
 - 年终总结
 
   - 2023 年年终总结
