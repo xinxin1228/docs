@@ -1,22 +1,20 @@
-## Webpack搭建工程化项目
+## 安装依赖、初始化配置文件
 
-### 安装依赖、初始化配置文件
-
-#### 初始化项目
+### 初始化项目
 
 ```shell
 # 这里采用 pnpm
 pnpm init
 ```
 
-#### 安装`webpack`依赖
+### 安装`webpack`依赖
 
 ```shell
 # 这里仅安装webpack必备插件的包，其他的包根据需求自行安装
 pnpm add webpack webpack-dev-server webpack-cli webpack-merge html-webpack-plugin -D
 ```
 
-#### 安装`eslint`、`prettier`
+### 安装`eslint`、`prettier`
 
 ```shell
 pnpm add eslint prettier -D
@@ -25,7 +23,7 @@ pnpm add eslint prettier -D
 pnpm add eslint-config-prettier eslint-plugin-prettier -D
 ```
 
-在根目录创建`.editorconfig`文件
+### 在根目录创建`.editorconfig`文件
 
 ```js
 # http://editorconfig.org
@@ -58,7 +56,7 @@ trim_trailing_whitespace = false
 }
 ```
 
-#### 配置`eslint`
+### 配置`eslint`
 
 ```shell
 npx eslint --init
@@ -89,7 +87,7 @@ npx eslint --init
 
 ```
 
-#### 编写`webpack`配置文件
+### 编写`webpack`配置文件
 
 ```js
 // 在根目录创建 config 文件夹，用来存放webpack相关的配置
@@ -102,7 +100,7 @@ config
 └── webpack.prod.config.js  // 构建专用文件
 ```
 
-`webpack.comm.config.js` 
+#### `webpack.comm.config.js` 
 
 ```js
 const path = require('path')
@@ -125,7 +123,7 @@ module.exports = {
 
 ```
 
-`webpack.dev.config.js`
+#### `webpack.dev.config.js`
 
 ```js
 const webpack = require('webpack')
@@ -148,7 +146,7 @@ module.exports = merge(webpackCommConfig, {
 
 ```
 
-`webpack.prod.config.js`
+#### `webpack.prod.config.js`
 
 ```js
 const path = require('path')
@@ -175,7 +173,7 @@ module.exports = merge(webpackCommConfig, {
 })
 ```
 
-#### 初始化`git` 
+### 初始化`git` 
 
 这步不可忽略，后面要配置`git`提交规范
 
@@ -190,7 +188,7 @@ node_modules
 dist
 ```
 
-#### 配置`git`提交规范
+### 配置`git`提交规范
 
 1. 使用 `husky-init` 命令快速在项目初始化一个 husky 配置。在配置 husky 之前必须初始化 git，否则可能会配置不成功
 
@@ -234,7 +232,7 @@ echo "🚀 ~ 请使用提交规范来提交代码"
 npx --no-install commitlint --edit "$1"'
 ```
 
-### 编写`scripts`
+## 编写`scripts`
 
 ```json
 "scripts": {
