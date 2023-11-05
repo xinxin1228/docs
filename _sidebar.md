@@ -4,6 +4,7 @@
   - [Git 规范](/docs/项目规范和风格/Git规范.md)
   - [API 接口规范](/docs/项目规范和风格/API接口规范.md)
 - 前端笔记
+
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
@@ -12,6 +13,8 @@
   - [微信小程序](/docs/前端笔记/微信小程序.md)
   - [计算机网络](/docs/前端笔记/计算机网络.md)
   - [Webpack 搭建工程化项目](/docs/前端笔记/Webpack搭建工程化项目.md)
+  - [Vite 搭建工程化项目](/docs/前端笔记/Vite搭建工程化项目.md)
+
 - 前端框架
 
   - Vue

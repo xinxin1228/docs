@@ -4,6 +4,7 @@
   - [Git 规范](/docs/项目规范和风格/Git规范.md)
   - [API 接口规范](/docs/项目规范和风格/API接口规范.md)
 - 前端笔记
+
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
@@ -11,6 +12,9 @@
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
   - [计算机网络](/docs/前端笔记/计算机网络.md)
+  - [Webpack 搭建工程化项目](/docs/前端笔记/Webpack搭建工程化项目.md)
+  - [Vite 搭建工程化项目](/docs/前端笔记/Vite搭建工程化项目.md)
+
 - 前端框架
 
   - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
@@ -46,7 +50,7 @@
   - [Node](/docs/服务器相关/Node.md)
 - 开发技巧
 
-  - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md) 
+  - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
   - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
 
 - 年终总结
