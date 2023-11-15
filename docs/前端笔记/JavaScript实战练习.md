@@ -251,39 +251,3 @@ https://github.com/xinxin1228/js-combat-practice/tree/main/%E7%94%9F%E6%88%90%E8
 具体的解法和环境初始化请移步至案例的具体仓库地址：
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/%E5%B0%81%E8%A3%85Touch%E5%BA%93
-
-## Ajax
-
-### 需求描述
-
-- 文件的上传和下载是每一位前端开发者最基础的技能。
-- 往大了说，就是`ajax`请求的数据交互，一般我们在工程化的前端开发模式下，都是使用`axios`这个库，那么我们如何使用**原生**的`ajax`来实现数据交互呢？
-- 对于大型文件的上传和下载，我们会使用`loading`效果来暂缓用户的焦虑，但是有些时候用户更想清楚的知道上传和下载的进度，这个时候需要我们时刻反馈给用户的进度。
-
-### 所用的知识
-
-- `XMLHttpRequest`
-
-- `fetch`
-
-- `formData`
-- 事件队列
-- `RESTful API`
-- `node`
-
-### 效果展示
-
-![input[file]选择文件并且反显桌面](../image/前端笔记/02.gif)
-
-![实现上传的进度条xhr版](../image/前端笔记/03.gif)
-
-![实现下载的进度条fetch版](../image/前端笔记/04.gif)
-
-![拖拽自动上传与拖拽手动上传，可取消上传](../image/前端笔记/05.gif)
-
-### 仓库地址
-
-具体的解法和环境初始化请移步至案例的具体仓库地址：
-
-https://github.com/xinxin1228/js-combat-practice/tree/main/Store
-
