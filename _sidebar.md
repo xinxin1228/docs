@@ -8,6 +8,8 @@
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
+    - [手写类似 pubsub-js 的事件队列库](/docs/前端笔记/JavaScript实战练习/手写类似pubsub-js的事件队列库.md)
+    - [手写 Axios](/docs/前端笔记/JavaScript实战练习/手写Axios.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
