@@ -8,6 +8,7 @@
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
+    - [封装 Touch 类](/docs/前端笔记/JavaScript实战练习/封装Touch类.md)
     - [原生的Ajax实现有进度的文件上传与下载](/docs/前端笔记/JavaScript实战练习/原生的Ajax实现有进度的文件上传与下载.md)
     - [手写类似 pubsub-js 的事件队列库](/docs/前端笔记/JavaScript实战练习/手写类似pubsub-js的事件队列库.md)
     - [手写 Axios](/docs/前端笔记/JavaScript实战练习/手写Axios.md)
