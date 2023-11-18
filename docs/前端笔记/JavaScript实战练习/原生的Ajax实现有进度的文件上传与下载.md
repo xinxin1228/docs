@@ -1,10 +1,14 @@
-## 需求描述
+> 所有【JavaScript实战练习】对应的 GitHub 仓库： https://github.com/xinxin1228/js-combat-practice
+
+## 原生Ajax实现有进度文件的上传与下载
+
+### 需求描述
 
 - 文件的上传和下载是每一位前端开发者最基础的技能。
 - 往大了说，就是`ajax`请求的数据交互，一般我们在工程化的前端开发模式下，都是使用`axios`这个库，那么我们如何使用**原生**的`ajax`来实现数据交互呢？
 - 对于大型文件的上传和下载，我们会使用`loading`效果来暂缓用户的焦虑，但是有些时候用户更想清楚的知道上传和下载的进度，这个时候需要我们时刻反馈给用户的进度。
 
-## 所用的知识
+### 所用的知识
 
 - `XMLHttpRequest`
 
@@ -15,7 +19,7 @@
 - `RESTful API`
 - `node`
 
-## 效果展示
+### 效果展示
 
 ![input[file]选择文件并且反显桌面](../../image/前端笔记/02.gif)
 
@@ -25,9 +29,9 @@
 
 ![拖拽自动上传与拖拽手动上传，可取消上传](../../image/前端笔记/05.gif)
 
-## 项目搭建
+### 项目搭建
 
-### 项目结构
+#### 项目结构
 
 ```shell
 # 项目目录说明
@@ -40,9 +44,9 @@
 └── 素材          # 案例中所用到的图片文件
 ```
 
-### 主要代码说明
+#### 主要代码说明
 
-#### 一、前端事件队列主要代码
+##### 一、前端事件队列主要代码
 
 ```js
 class EventQueue {
@@ -80,7 +84,7 @@ class EventQueue {
 }
 ```
 
-#### 二、前端 xhr 主要代码（已封装）
+##### 二、前端 xhr 主要代码（已封装）
 
 ```js
 class Request extends EventQueue {
@@ -242,7 +246,7 @@ function judgeObject(res) {
 const request = new Request()
 ```
 
-#### 三、前端 fetch 主要代码（已封装）
+##### 三、前端 fetch 主要代码（已封装）
 
 ```js
 class Request extends EventQueue {
@@ -381,7 +385,7 @@ function judgeObject(res) {
 const request = new Request()
 ```
 
-#### 四、【express】后端上传文件部分主要代码（已封装）
+##### 四、【express】后端上传文件部分主要代码（已封装）
 
 ```js
 // 位置： src/utils/upload.js
@@ -429,7 +433,7 @@ const upload = (path = '', maxCount) => {
 module.exports = upload
 ```
 
-#### 五、【express】使用已封装好的上传文件方法
+##### 五、【express】使用已封装好的上传文件方法
 
 ```js
 const experess = require('express')
@@ -463,7 +467,7 @@ router.post('/upload', async (req, res) => {
 module.exports = router
 ```
 
-#### 六、【koa】后端上传文件部分主要代码（已封装）
+##### 六、【koa】后端上传文件部分主要代码（已封装）
 
 ```js
 // 位置： src/utils/upload.js
@@ -528,7 +532,7 @@ function writeFile(ctx, file, url) {
 module.exports = upload
 ```
 
-#### 七、【koa】使用已经封装好的上传文件方法
+##### 七、【koa】使用已经封装好的上传文件方法
 
 ```js
 const Router = require('@koa/router')
@@ -555,7 +559,7 @@ module.exports = router
 
 
 
-### 前端文件说明
+#### 前端文件说明
 
 ```shell
 client
@@ -579,9 +583,9 @@ client
 
 ```
 
-## 附：使用 `axios` 实现相同的效果
+### 附：使用 `axios` 实现相同的效果
 
-### `axios`实现上传与下载进度
+#### `axios`实现上传与下载进度
 
 ```js
 // 上传文件 并且显示上传进度
@@ -612,6 +616,6 @@ axios.get(fileUrl, {
 })
 ```
 
-## 仓库地址
+### 仓库地址
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/Ajax
