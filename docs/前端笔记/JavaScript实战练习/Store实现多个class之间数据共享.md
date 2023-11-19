@@ -1,6 +1,6 @@
 > 所有【JavaScript实战练习】对应的 GitHub 仓库： https://github.com/xinxin1228/js-combat-practice
 
-### 需求描述
+## 需求描述
 
 - 封装一个高阶类，可以获取数据和存储数据，提供一下的方法
 
@@ -23,14 +23,14 @@
 
 - 通过该高阶类，可以做到在多个类中数据进行流通
 
-### 所用的知识
+## 所用的知识
 
 **HOC 高阶类**
 
 1. 在父类使用子类才有的东西
 2. 类写完不直接用，而是进行包裹
 
-### 效果展示
+## 效果展示
 
 ```js
 import { store } from './Store.js'
@@ -48,6 +48,6 @@ console.log(a.get('name')) // 'web'
 console.log(b.get('name')) // 'web'
 ```
 
-### 仓库地址
+## 仓库地址
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/Store
