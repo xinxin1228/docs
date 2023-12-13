@@ -14,7 +14,6 @@
   - [计算机网络](/docs/前端笔记/计算机网络.md)
   - [Webpack 搭建工程化项目](/docs/前端笔记/Webpack搭建工程化项目.md)
   - [Vite 搭建工程化项目](/docs/前端笔记/Vite搭建工程化项目.md)
-
 - 前端框架
 
   - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
@@ -23,7 +22,6 @@
   - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
   - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
   - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
-
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
   - [nvm](/docs/Node相关/nvm.md)
@@ -35,12 +33,10 @@
   - [MongoDB](/docs/数据库/MongoDB.md)
   - [MySQL](/docs/数据库/MySQL.md)
   - [Redis](/docs/数据库/Redis.md)
-
 - Git 和 GitHub
 
   - [Git 总结](/docs/Git和GitHub/Git总结.md)
   - [GitHub 操作指南](/docs/Git和GitHub/GitHub操作指南.md)
-
 - 服务器相关
   - [Nginx](/docs/服务器相关/Nginx.md)
   - [Pm2](/docs/服务器相关/Pm2.md)
@@ -52,10 +48,9 @@
 
   - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
   - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
-
+  - [npm、yarn、pnpm换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
 - 年终总结
 
   - 2023 年年终总结
-
 - 随心所记
   - 关于程序员寒冬的思考

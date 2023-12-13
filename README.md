@@ -74,3 +74,9 @@
 - [MongoDB](/docs/服务器相关/MongoDB.md)
 - [MySql8.0](/docs/服务器相关/MySQL8.0.md)
 - [Node](/docs/服务器相关/Node.md)
+
+### 开发技巧
+
+  - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
+  - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
+  - [npm、yarn、pnpm换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
