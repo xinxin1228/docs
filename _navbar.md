@@ -49,6 +49,7 @@
   - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
   - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
   - [npm、yarn、pnpm换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
+  - [常用的AI网站](/docs/开发技巧/常用的AI网站.md)
 - 年终总结
 
   - 2023 年年终总结
