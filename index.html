@@ -52,7 +52,11 @@
         margin-top: 15px;
       }
       pre {
+        overflow-x: hidden;
         border-radius: 8px;
+        span {
+          white-space: pre-wrap;
+        }
       }
       /* github头像 */
       #gitalk-container {
@@ -60,6 +64,9 @@
           border-radius: 50%;
           overflow: hidden;
         }
+      }
+      ul > li {
+        line-height: 2rem;
       }
     </style>
   </head>

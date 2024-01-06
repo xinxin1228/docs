@@ -4011,29 +4011,36 @@ Array.prototype.myunshift = function(..thisArr){
 // 分为两种方法 一种是普通的递归函数 一种是使用reduce函数迭代
 
 // 1. 普通函数递归
-const newArr = []
-function flat(arr) {
-  arr.forEach(item => {
-    if (Array.isArray(item)) {
-      flat(item)
+Array.prototype.myFlat = function (depth = 1) {
+  let newArr = []
+
+  this.forEach(item => {
+    if (Array.isArray(item) && depth > 0) {
+      newArr = newArr.concat(item.myFlat(depth - 1))
     } else {
       newArr.push(item)
     }
   })
+
+  return newArr
 }
 
 // 2. 使用reduce函数迭代
-function flat(arr) {
-  return arr.reduce(
-    (prev, next) => prev.concat(Array.isArray(next) ? flat(next) : next),
-    []
-  )
+Array.prototype.myFlat = function (depth = 1) {
+  return this.reduce((prev, next) => {
+    if (Array.isArray(next) && depth > 0) {
+      return prev.concat(next.myFlat(depth - 1))
+    } else {
+      return [...prev, next]
+    }
+  }, [])
 }
 ```
 
 #### 手写 flatMap
 
 ```js
+// 方法一：利用flat展开一层
 Array.prototype.myFlatMap = function (thisFun) {
   if (typeof thisFun !== 'function') throw TypeError('期望传入函数')
 
@@ -4044,6 +4051,19 @@ Array.prototype.myFlatMap = function (thisFun) {
   }
 
   return result.flat()
+}
+
+// 方法二：利用contact的特性自动展开
+Array.prototype.myFlatMap = function (callback) {
+  let arr = []
+
+  for (let i = 0; i < this.length; i++) {
+    const result = callback(this[i], i, this)
+
+    arr = arr.concat(result)
+  }
+
+  return arr
 }
 ```
 
@@ -4207,39 +4227,36 @@ Array.prototype.myEvery = function (thisHoc) {
 ```js
 // 支持深拷贝Symbol类型（包括key或value为Symbol）
 
-// 声明两个变量 一个为数据的样式，一个为要拷贝的对象
-function deep(obj, type = {}) {
-  // 使用for...in 遍历要拷贝的对象
-  for (let i in obj) {
-    // 判断是否为object数据类型
-    if (typeof obj[i] === 'object') {
-      // 判断结果为object的有null、Array和Ojbect，判断具体类型
-      type[i] = obj[i].constructor === Array ? [] : {}
-      // 递归调用自身
-      deep(obj[i], type[i])
-    } else if (typeof obj[i] === 'symbol') {
-      // 如果value为Symbol类型 处理方案
-      type[i] = Symbol(obj[i].description)
+function deepCopy(obj) {
+  if (typeof obj !== 'object') return obj
+  if (obj === null) return null
+  
+  let newObj = Array.isArray(obj) ? [] : {}
+
+  for (const key in obj) {
+    const val = obj[key]
+
+    if (typeof val === 'object') {
+      newObj[key] = deep(val)
+    } else if (typeof val === 'symbol') {
+      newObj[key] = Symbol(val.description)
     } else {
-      // 基本类型不存在深拷贝和浅拷贝问题，直接原样输出
-      type[i] = obj[i]
+      newObj[key] = val
     }
   }
-  // key为Symbol处理
+
+  // 处理key为symbol类型
   const syms = Object.getOwnPropertySymbols(obj)
-  for (let sym of syms) {
-    if (typeof obj[sym] === 'object') {
-      let symType = Array.isArray(target[sym]) ? [] : {}
-      type[Symbol(sym.description)] = deep(obj[sym], symType)
-    } else {
-      type[Symbol(sym.description)] = obj[sym]
-    }
-  }
-  // 递归调用结束，然后深拷贝之后的对象
-  return type
+
+  syms.forEach(sym => {
+    const newSym = Symbol(sym.description)
+    newObj[newSym] = deep(obj[sym])
+  })
+
+  return newObj
 }
 
-let obj1 = deep(obj)
+let obj1 = deepCopy(obj)
 ```
 
 ### 函数手写
@@ -4253,7 +4270,7 @@ Function.prototype.myCall = function (thisArg, ...thisArr) {
   // 获取当前的this 调用该方法的函数
   let self = this
   // 判断要绑定的this指向值，存在将其对象化，不存在默认指向window
-  thisArg = thisArg !== undefined && thisArg !== null ? Object(thisArg) : window
+  // thisArg = thisArg !== undefined && thisArg !== null ? Object(thisArg) : window
   // 上面和下面这种写法相同
   thisArg = Object(thisArg ?? window)
   // 使用Symbol 防止篡改this绑定对象上的内容
@@ -4261,9 +4278,11 @@ Function.prototype.myCall = function (thisArg, ...thisArr) {
   // 利用隐式绑定 绑定this
   thisArg[sym] = self
   // 调用该函数 并将值传入
-  thisArg[sym](...thisArr)
+  const result = thisArg[sym](...thisArr)
   // 删除上面添加的属性
-  return delete thisArg[sym]
+  delete thisArg[sym]
+  
+  return result
 }
 
 fun.myCall('123', 1, 2)
@@ -4284,8 +4303,10 @@ Function.prototype.myApply = function (thisArg, thisArr = []) {
   // 利用显示绑定绑定this
   thisArg[sym] = self
   // 调用该函数 并传入参数
-  thisArg[sym](...thisArr)
-  return delete thisArg[sym]
+  const result = thisArg[sym](...thisArr)
+  delete thisArg[sym]
+  
+  return result
 }
 
 sum.myApply('123', 123, 2)
@@ -4305,11 +4326,12 @@ Function.prototype.myBind = function (thisArg, ...thisArr) {
   let sym = Symbol('this绑定')
   // 利用隐式绑定绑定this
   thisArg[sym] = self
-  // 返回并调用该函数 并传入参数
+  // 返回并调用该函数 并传入参数 返回箭头函数 防止this被再次改变
   return (...rest) => {
     // 将两者传入的参数合并传入
-    thisArg[sym](...thisArr, ...rest)
+    const result = thisArg[sym](...thisArr, ...rest)
     delete thisArg[sym]
+    return result
   }
 }
 
@@ -4324,11 +4346,24 @@ nums.myBind('123', 1, 2)(3, 4)
 function myOnce(fun) {
   // 是否执行完成
   let flag = false
-  return function (event) {
+  
+  return function (...rest) {
     // 当第一次执行完之后，falg的值会变为true，原因是利用了闭包的缓存
     if (!falg) {
-      fun.call(this, event)
       flag = true
+      return fun.apply(this, rest)
+    }
+  }
+}
+
+// 进阶 可控制可执行次数的函数
+function myOnceNum(fun, num = 1) {
+  let performedNum = 0
+
+  return function (...rest) {
+    if (performedNum < num) {
+      performedNum++
+      return fun.apply(this, rest)
     }
   }
 }
