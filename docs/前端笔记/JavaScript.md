@@ -2318,8 +2318,8 @@ foo.call(null) // window
 ```js
 1. NaN和任何人都不相等，包括自身
 2. bigInt,Symbol，首先比较是不是同一个类型，不是同一个类型肯定不相等
-3. null,undefined，它两只根自身或者对方相等
-4. 布尔值和其他类型比较，布尔值会转化为数字
+3. null,undefined，它两只跟自身或者对方相等
+4. 布尔值和其他类型比较，布尔根值会转化为数字
 5. 数字类型和字符串类型比较，字符串会转化为数字
 6. 对象类型和原始类型比较，对象类型会转化为原始类型，两个对象比较，比较的是他们的引用
 
@@ -2712,9 +2712,13 @@ console.log(Object.entries(obj1)) [["name","obj1对象"]]
 
 
 // Object.fromEntries()
-// 将entries转为对象
+// 将entries转为对象，也可以用来读取 formData 中的所有数据
 console.log(Object.fromEntries(Object.entries(obj1))) // {name:"obj1对象"}
 
+const formData = new FormData()
+formData.append('name', 'web')
+formData.append('age', 23)
+console.log(Object.fromEntries(formData)) // { name: 'web', age: 23 }
 
 
 // Object.assign()
@@ -2732,10 +2736,6 @@ obj.name = "Vue"
 obj.info.name = "info改变"
 console.log(obj1.name) // WEB架构师
 console.log(obj1.info.name) // info改变
-
-
-
-
 ```
 
 ![Object方法](../image/前端笔记/23.jpg)
@@ -2858,9 +2858,7 @@ console.log(obj instanceof info) // TypeError
 // toString 方法返回一个字符串 "[object Object]"
 // valueOf 返回对象自身  obj.valueOf() === obj
 
-xxx[
-  obj
-] // 优先取obj.toString()的值，没有则返回 [object Object]
+xxx[obj] // 优先取obj.toString()的值，没有则返回 [object Object]
 `${obj}` // 优先取obj.toString()的值，没有则返回 [object Object]
 obj + 1 // 优先取obj.valueOf()的值，然后取obj.toString()的值，没有则返回 [object Object]
 obj * 1 // 优先取obj.valueOf()的值，然后取obj.toString()的值，没有则返回 [object Object]
