@@ -726,6 +726,336 @@ dispatchRequest() {
 
 https://github.com/xinxin1228/js-combat-practice/tree/main/%E6%89%8B%E5%86%99axios/webpack-axios
 
+## 重构webpacak-axios版本
+
+> 上述版本基本上完成了axios的大部分功能，但是我在后续的重写以及review时，探索了新的写法和实现了新的功能，因此会有“重构”一节。也算是对上述版本的升级。
+
+### 新增的功能
+
+- 支持设置请求超时（`timeout`）
+- 支持请求取消（`AbortController`）
+- 优化了拦截器的写法（`reduce代替while循环`）
+- 调整`transformRequest`、`transformResponse`和拦截器的执行顺序（`与axios执行顺序一致`）
+- 对请求错误进行了封装（`AxiosError`）
+
+下面将对这些新增的功能逐一解释。
+
+### 请求超时
+
+请求超时是原生`XMLHttpRequest`（XHR）自带的一个功能，它的值是一个无符号长整型（`unsigned long`）数字，表示该请求的最大请求时间（毫秒），若超出该时间，请求会自动终止。
+
+因此我们只需要在`request.js`（发送`ajax`请求的函数）中，将我们在配置信息中添加的`timeout`赋值即可。但是我们需要注意一下赋值的顺序。顺序为：
+
+配置中的timeout > 全局默认的timeout > 系统默认的timeout
+
+```js
+// 系统默认的timeout值为0，因此下面这种情况的timeout是200
+
+axios.defaults.timeout = 100
+
+axios({
+  url,
+  timeout: 200
+})
+```
+
+然后我们设置给`xhr`即可
+
+```js
+// request.js
+
+const xhr = new XMLHttpRequest()
+
+// ...
+
+// 设置超时
+if （config.timeout） {
+  xhr.timeout = timeout
+} 
+
+// 监听超时事件，用于后续处理
+xhr.addEventListener('timeout', () => {
+  console.log(`timeout of ${config.timeout}ms exceeded`)
+})
+```
+
+### 取消请求
+
+目前`axios`有两种方式可以取消请求，一种是使用~~`cancel token`~~，但是该API 从 `v0.22.0` 开始已被**弃用**，不应在新项目中使用，因此这里我们不在编写。另一种方式是以 `fetch API`  方式—— `AbortController` 取消请求，这里我们使用这种方式。
+
+我们看一下它的用法：
+
+```js
+const controller = new AbortController();
+
+axios.get('/foo/bar', {
+   signal: controller.signal
+}).then(function(response) {
+   //...
+});
+
+// 取消请求
+controller.abort()
+```
+
+原理：
+
+外面传入由`AbortController`生成的`AbortSignal`对象实例，然后我们在内部监听该实例的`borted`属性，它是一个`Boolean`值，表示与之通信的请求是否被终止（`true`）或未终止（`false`）。
+
+如果是被终止状态（`true`）时，我们调用原生`XMLHttpRequest`（XHR）的`abort()`方法来中止上传。如果是未终止状态（`false`）时，我们调用`AbortSignal`实例上的`addEventListener`方法来监听`abort`事件。
+
+```js
+// ...
+
+if (config.signal) {
+  if (config.signal.aborted) {
+    xhr.abort()
+  } else {
+    config.signal.addEventListener('abort', () => {
+      xhr.abort()
+    })
+  }
+}
+```
+
+### 优化拦截器写法
+
+在之前的版本，我们是通过`while`循环来执行的
+
+```js
+// 请求拦截器调用链 [默认的请求发送]
+const requestList = [this.dispatchRequest()]
+
+this.interceptors.request.forEach((item) => {
+  requestList.unshift(item)
+})
+this.interceptors.response.forEach((item) => {
+  requestList.push(item)
+})
+
+let requestPromise = Promise.resolve(config)
+
+while (requestList.length) {
+  const { resolve, reject } = requestList.shift()
+
+  requestPromise = requestPromise.then(resolve, reject)
+}
+
+return requestPromise
+```
+
+现在我们将执行来交给`reduce`来处理
+
+```js
+// 请求拦截器调用链 [默认的请求发送]
+const performList = [this._dispatchRequest()]
+
+this.interceptors.request.forEach(interceptor => {
+  performList.unshift(interceptor)
+})
+this.interceptors.response.forEach(interceptors => {
+  performList.push(interceptors)
+})
+
+return performList.reduce((prev, next) => {
+  return prev.then(next.resolve, next.reject)
+}, Promise.resolve(mergeCon))
+```
+
+### 调整执行顺序
+
+假设我们使用`axios`的代码如下：
+
+```js
+import axios from 'axios'
+
+axios.interceptors.request.use((config) => {
+  console.log('use1')
+  return config
+}, (err) => {
+  return Promise.reject(err)
+})
+axios.interceptors.request.use((config) => {
+  console.log('use2')
+  return config
+}, (err) => {
+  return Promise.reject(err)
+})
+
+axios.interceptors.response.use((config) => {
+  console.log('>> use1')
+  return config
+}, (err) => {
+  return Promise.reject(err)
+})
+axios.interceptors.response.use((config) => {
+  console.log('>> use2')
+  return config
+}, (err) => {
+  return Promise.reject(err)
+})
+
+axios({
+  url,
+  transformRequest(data, headers) {
+    console.log('transformRequest')
+    return data
+  },
+  transformResponse(data, headers, status) {
+    console.log('transformResponse')
+    return data
+  }
+})
+```
+
+那么他的执行顺序将是：
+
+```js
+use1 
+ ⇓
+use2
+ ⇓
+transformRequset
+ ⇓
+transformResponse
+ ⇓
+>> use1
+ ⇓
+>> use2
+```
+
+但目前我们的执行顺序是：
+
+```js
+transformRequset
+ ⇓
+use1 
+ ⇓
+use2
+ ⇓
+transformResponse
+ ⇓
+>> use1
+ ⇓
+>> use2
+```
+
+我们需要将`tansformRequest`和`transformResponse`方法移入`_dispatchRequest`内部实现即可
+
+```js
+_dispatchRequest() {
+  return {
+    async resolve(config) {
+      let { transformRequest, transformResponse } = config
+
+      throwError(transformRequest && !isFunction(transformRequest))
+      throwError(transformResponse && !isFunction(transformResponse))
+
+      // 内部实现
+      if (transformRequest) {
+        config.data = transformRequest(config.data, config.headers)
+      }
+
+      const xhr = await request(config)
+
+      const res = response(xhr, config)
+
+      if (transformResponse) {
+        res.data = transformResponse(res.data, res.headers, res.status)
+      }
+
+      return res
+    },
+    reject(err) {
+      return Promise.reject(err)
+    }
+  }
+}
+```
+
+### 封装AxiosError
+
+```js
+class AxiosError {
+  constructor(message, code, config, xhr) {
+    console.log(xhr)
+    this.message = message
+    this.config = config
+    this.code = code
+    this.request = xhr
+    this.response = {
+      data: xhr.responseText,
+      headers: new AxiosHeaders(xhr.getAllResponseHeaders()),
+      status: xhr.status,
+      statusText: xhr.statusText,
+      request: xhr
+    }
+    this.name = 'AxiosError'
+    this.stack = new Error(message).stack
+  }
+
+  // 界面报错显示
+  toString() {
+    return this.message
+  }
+
+  toJSON() {
+    return {
+      message: this.message,
+      name: this.name,
+      stack: this.stack,
+      code: this.code,
+      config: this.config
+    }
+  }
+}
+```
+
+在`request.js`中的错误回调中使用
+
+```js
+import { AxiosError } from 'AxiosError'
+
+//...
+
+const createError = (message, code) => {
+  return new AxiosError(message, code, config, xhr)
+}
+
+xhr.addEventListener('load', () => {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    resolve(xhr)
+  } else {
+    reject(
+      createError(
+        `Request failed with status code ${xhr.status}`,
+        'ERR_BAD_RxEQUEST'
+      )
+    )
+  }
+})
+
+xhr.addEventListener('error', () => {
+  reject(createError('Network Error', 'ERR_NETWORK'))
+})
+xhr.addEventListener('timeout', () => {
+  reject(createError(`timeout of ${timeout}ms exceeded`, 'ECONNABORTED'))
+})
+xhr.addEventListener('abort', () => {
+  reject(createError('canceled', 'ERR_CANCELED'))
+})
+```
+
+### 参考资料
+
+`AbortController`: [https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController)
+
+`XMLHttpRequest`：[https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)
+
+### 仓库地址
+
+https://github.com/xinxin1228/js-combat-practice/tree/main/%E6%89%8B%E5%86%99axios/webpack-axios-new
+
 ## 手写 vite-axios 版本
 
 ### 说明

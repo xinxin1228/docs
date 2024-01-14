@@ -4235,7 +4235,12 @@ function deepCopy(obj) {
     const val = obj[key]
 
     if (typeof val === 'object') {
-      newObj[key] = deep(val)
+      // 如果是类，就不再深拷贝
+      if (val?.constructor?.name !== 'Object') {
+        newObj[key] = val
+      } else {
+        newObj[key] = deepCopy(val)
+      }
     } else if (typeof val === 'symbol') {
       newObj[key] = Symbol(val.description)
     } else {
@@ -4248,7 +4253,7 @@ function deepCopy(obj) {
 
   syms.forEach(sym => {
     const newSym = Symbol(sym.description)
-    newObj[newSym] = deep(obj[sym])
+    newObj[newSym] = deepCopy(obj[sym])
   })
 
   return newObj
