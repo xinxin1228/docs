@@ -29,7 +29,7 @@ ul > li {
   height: 50px;
   position: fixed;
   z-index: 10000;
-  bottom: 50px;
+  bottom: 100px;
   right: 30px;
   cursor: pointer;
   border-radius: 10px;
