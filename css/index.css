@@ -1,0 +1,51 @@
+/* 图片居中 */
+figure {
+  text-align: center;
+}
+/* issue */
+#gitalk-container {
+  margin-top: 15px;
+}
+/* 代码块设置超出折行 */
+pre {
+  overflow-x: hidden !important;
+  border-radius: 8px;
+  white-space: pre-wrap !important;
+}
+/* github头像 */
+#gitalk-container {
+  .gt-avatar {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+ul > li {
+  line-height: 2rem;
+}
+
+.huangjx-back-top {
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  z-index: 10000;
+  bottom: 50px;
+  right: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  &:hover {
+    box-shadow: 0 6px 16px 0 rgba(101, 183, 135, 0.08),
+      0 3px 6px -4px rgba(101, 183, 135, 0.12),
+      0 9px 28px 8px rgba(101, 183, 135, 0.05);
+  }
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}

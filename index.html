@@ -42,31 +42,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
     />
-    <style>
-      /* 图片居中 */
-      figure {
-        text-align: center;
-      }
-      /* issue */
-      #gitalk-container {
-        margin-top: 15px;
-      }
-      pre {
-        overflow-x: hidden !important;
-        border-radius: 8px;
-        white-space: pre-wrap !important;
-      }
-      /* github头像 */
-      #gitalk-container {
-        .gt-avatar {
-          border-radius: 50%;
-          overflow: hidden;
-        }
-      }
-      ul > li {
-        line-height: 2rem;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
 
   <body>
@@ -179,6 +155,7 @@
     <!-- 文档更新时间 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
 
+    <!-- gitalk -->
     <script>
       window.addEventListener('load', () => {
         const getIssue = () => {
@@ -214,6 +191,35 @@
             oldUrl = url
           }
         })
+      })
+    </script>
+
+    <!-- 返回顶部 -->
+    <script>
+      const topEl = document.createElement('div')
+      const imgEl = document.createElement('img')
+      imgEl.src = './imgs/backtop.png'
+      topEl.classList.add('huangjx-back-top')
+      imgEl.setAttribute('data-action', 'back-to-top')
+      topEl.setAttribute('data-action', 'back-to-top')
+      topEl.append(imgEl)
+      document.body.append(topEl)
+
+      document.addEventListener('click', e => {
+        if (e.target.dataset.action === 'back-to-top') {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // 平滑滚动
+          })
+        }
+      })
+
+      document.addEventListener('scroll', e => {
+        if (document.documentElement.scrollTop >= 300) {
+          topEl.style.display = ''
+        } else {
+          topEl.style.display = 'none'
+        }
       })
     </script>
 
