@@ -66,6 +66,20 @@
 - [Git 总结](/docs/Git和GitHub/Git总结.md)
 - [GitHub 操作指南](/docs/Git和GitHub/GitHub操作指南.md)
 
+### Shell学习
+
+- [基本用法](/docs/Shell学习/基本用法.md)
+- [常用快捷键](/docs/Shell学习/常用快捷键.md)
+- [常用的命令关键词](/docs/Shell学习/常用的命令关键词.md)
+- [模式扩展](/docs/Shell学习/模式扩展.md)
+- [变量](/docs/Shell学习/变量.md)
+- [算术运算](/docs/Shell学习/算术运算.md)
+- [脚本入门](/docs/Shell学习/脚本入门.md)
+- [条件判断](/docs/Shell学习/条件判断.md)
+- [循环](/docs/Shell学习/循环.md)
+- [函数](/docs/Shell学习/函数.md)
+- [数组](/docs/Shell学习/数组.md)
+
 ### 服务器相关
 
 - [Nginx](/docs/服务器相关/Nginx.md)
