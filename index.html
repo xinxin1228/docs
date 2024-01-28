@@ -187,6 +187,7 @@
           const url = location.href.split('?')[0]
           if (oldUrl !== url) {
             setTimeout(getIssue, 1000)
+            window.scrollTo({ top: 0 })
 
             oldUrl = url
           }
