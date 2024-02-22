@@ -49,15 +49,6 @@
     - [Webpack 如何提升构建性能](/docs/前端构建工具/Webpack5学习/Webpack如何提升构建性能.md)
     - [Webpack 生产环境优化](/docs/前端构建工具/Webpack5学习/Webpack生产环境优化.md)
     - [Webpack 如何编写 Loader](/docs/前端构建工具/Webpack5学习/Webpack如何编写Loader.md)
-    - Webpack 如何编写 Plugin
-    - Webpack 常见的面试题
-  - Webpack5 实战
-    - 搭建基础的前端工程化项目
-    - 搭建 TypeScript 项目的开发环境
-    - 搭建 Vue3 项目的开发环境 （如何集成 ts 如何集成全家桶 组件库）
-    - 搭建 react 项目的开发环境 （如何集成 ts 如何集成全家桶 组件库）
-    - 开发一个 npm 包 （ 实际成品展示： axios）
-  - Vite
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
   - [nvm](/docs/Node相关/nvm.md)
@@ -94,12 +85,6 @@
   - [循环](/docs/Shell学习/循环.md)
   - [函数](/docs/Shell学习/函数.md)
   - [数组](/docs/Shell学习/数组.md)
-- Docker 学习
-  - [Docker 介绍及安装](/docs/Docker学习/Docker介绍及安装.md)
-  - [Docker 常用指令指南](/docs/Docker学习/Docker常用指令指南.md)
-  - [容器快速上手](/docs/Docker学习/容器快速上手.md)
-  - [镜像快速上手](/docs/Docker学习/镜像快速上手.md)
-  - [Dockerfile 快速上手](/docs/Docker学习/Dockerfile快速上手.md)
 - 服务器相关
   - [Nginx](/docs/服务器相关/Nginx.md)
   - [Pm2](/docs/服务器相关/Pm2.md)
@@ -114,9 +99,6 @@
   - [npm、yarn、pnpm 换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
   - [常用的 AI 网站](/docs/开发技巧/常用的AI网站.md)
   - [Mac 终端配置](/docs/开发技巧/mac终端配置.md)
-  - Npm script 用法和操作
-  - node 中的环境参数设置和使用https://blog.csdn.net/sinat_17775997/article/details/123305622
-  - 多文件拖拽上传和点击上传
   - [Js 读取图片的宽高信息](/docs/开发技巧/Js读取图片的宽高信息.md)
 
 - 年终总结
