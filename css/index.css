@@ -11,6 +11,9 @@ pre {
   overflow-x: hidden !important;
   border-radius: 8px;
   white-space: pre-wrap !important;
+  .docsify-copy-code-button {
+    white-space: nowrap !important;
+  }
 }
 /* github头像 */
 #gitalk-container {
@@ -19,7 +22,7 @@ pre {
     overflow: hidden;
   }
 }
-ul > li {
+:is(ul, ol) > li {
   line-height: 2rem;
 }
 
