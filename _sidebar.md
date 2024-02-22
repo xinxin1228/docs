@@ -9,10 +9,10 @@
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
     - [渲染自定义组件](/docs/前端笔记/JavaScript实战练习/渲染自定义组件.md)
-    - [Store实现多个 class 之间数据共享](/docs/前端笔记/JavaScript实战练习/Store实现多个class之间数据共享.md)
-    - [生成虚拟DOM](/docs/前端笔记/JavaScript实战练习/生成虚拟DOM.md)
+    - [Store 实现多个 class 之间数据共享](/docs/前端笔记/JavaScript实战练习/Store实现多个class之间数据共享.md)
+    - [生成虚拟 DOM](/docs/前端笔记/JavaScript实战练习/生成虚拟DOM.md)
     - [封装 Touch 类](/docs/前端笔记/JavaScript实战练习/封装Touch类.md)
-    - [原生的Ajax实现有进度的文件上传与下载](/docs/前端笔记/JavaScript实战练习/原生的Ajax实现有进度的文件上传与下载.md)
+    - [原生的 Ajax 实现有进度的文件上传与下载](/docs/前端笔记/JavaScript实战练习/原生的Ajax实现有进度的文件上传与下载.md)
     - [手写类似 pubsub-js 的事件队列库](/docs/前端笔记/JavaScript实战练习/手写类似pubsub-js的事件队列库.md)
     - [手写 Axios](/docs/前端笔记/JavaScript实战练习/手写Axios.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
@@ -21,6 +21,7 @@
   - [计算机网络](/docs/前端笔记/计算机网络.md)
   - [Webpack 搭建工程化项目](/docs/前端笔记/Webpack搭建工程化项目.md)
   - [Vite 搭建工程化项目](/docs/前端笔记/Vite搭建工程化项目.md)
+
 - 前端框架
 
   - Vue
@@ -32,6 +33,31 @@
     - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
   - qiankun
     - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
+
+- 前端构建工具
+  - Webpack5 学习
+    - [Webpack 是什么](/docs/前端构建工具/Webpack5学习/Webpack是什么.md)
+    - [Webpack 配置项总览以及初体验](/docs/前端构建工具/Webpack5学习/Webpack配置项总览以及初体验.md)
+    - [Webpack 配置结构的多种写法](/docs/前端构建工具/Webpack5学习/Webpack配置结构的多种写法.md)
+    - [Webpack 常用的核心配置](/docs/前端构建工具/Webpack5学习/Webpack常用的核心配置.md)
+    - [Webpack 中常用的 Loader](/docs/前端构建工具/Webpack5学习/Webpack中常用的Loader.md)
+    - [Webpack 常用的 Plugin](/docs/前端构建工具/Webpack5学习/Webpack常用的Plugin.md)
+    - [Webpack 如何加载图像](/docs/前端构建工具/Webpack5学习/Webpack如何加载图像.md)
+    - [Webpack 如何压缩代码](/docs/前端构建工具/Webpack5学习/Webpack如何压缩代码.md)
+    - [Webpack 开发 PWA 应用](/docs/前端构建工具/Webpack5学习/Webpack开发PWA应用.md)
+    - [Webpack 如何构建 npm 包](/docs/前端构建工具/Webpack5学习/Webpack如何构建npm包.md)
+    - [Webpack 如何提升构建性能](/docs/前端构建工具/Webpack5学习/Webpack如何提升构建性能.md)
+    - [Webpack 生产环境优化](/docs/前端构建工具/Webpack5学习/Webpack生产环境优化.md)
+    - [Webpack 如何编写 Loader](/docs/前端构建工具/Webpack5学习/Webpack如何编写Loader.md)
+    - Webpack 如何编写 Plugin
+    - Webpack 常见的面试题
+  - Webpack5 实战
+    - 搭建基础的前端工程化项目
+    - 搭建 TypeScript 项目的开发环境
+    - 搭建 Vue3 项目的开发环境 （如何集成 ts 如何集成全家桶 组件库）
+    - 搭建 react 项目的开发环境 （如何集成 ts 如何集成全家桶 组件库）
+    - 开发一个 npm 包 （ 实际成品展示： axios）
+  - Vite
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
   - [nvm](/docs/Node相关/nvm.md)
@@ -50,11 +76,13 @@
     - 事务
     - 案例学习
   - [Redis](/docs/数据库/Redis.md)
+
 - Git 和 GitHub
 
   - [Git 总结](/docs/Git和GitHub/Git总结.md)
   - [GitHub 操作指南](/docs/Git和GitHub/GitHub操作指南.md)
-- Shell学习
+
+- Shell 学习
   - [基本用法](/docs/Shell学习/基本用法.md)
   - [常用快捷键](/docs/Shell学习/常用快捷键.md)
   - [常用的命令关键词](/docs/Shell学习/常用的命令关键词.md)
@@ -66,6 +94,12 @@
   - [循环](/docs/Shell学习/循环.md)
   - [函数](/docs/Shell学习/函数.md)
   - [数组](/docs/Shell学习/数组.md)
+- Docker 学习
+  - [Docker 介绍及安装](/docs/Docker学习/Docker介绍及安装.md)
+  - [Docker 常用指令指南](/docs/Docker学习/Docker常用指令指南.md)
+  - [容器快速上手](/docs/Docker学习/容器快速上手.md)
+  - [镜像快速上手](/docs/Docker学习/镜像快速上手.md)
+  - [Dockerfile 快速上手](/docs/Docker学习/Dockerfile快速上手.md)
 - 服务器相关
   - [Nginx](/docs/服务器相关/Nginx.md)
   - [Pm2](/docs/服务器相关/Pm2.md)
@@ -77,10 +111,17 @@
 
   - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
   - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
-  - [npm、yarn、pnpm换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
-  - [常用的AI网站](/docs/开发技巧/常用的AI网站.md)
+  - [npm、yarn、pnpm 换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
+  - [常用的 AI 网站](/docs/开发技巧/常用的AI网站.md)
+  - [Mac 终端配置](/docs/开发技巧/mac终端配置.md)
+  - Npm script 用法和操作
+  - node 中的环境参数设置和使用https://blog.csdn.net/sinat_17775997/article/details/123305622
+  - 多文件拖拽上传和点击上传
+  - [Js 读取图片的宽高信息](/docs/开发技巧/Js读取图片的宽高信息.md)
+
 - 年终总结
 
   - 2023 年年终总结
+
 - 随心所记
   - 关于程序员寒冬的思考
