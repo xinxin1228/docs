@@ -1,4 +1,4 @@
-> 本节完整的完整代码地址：
+> 本节完整的完整代码地址：https://github.com/xinxin1228/webpack-learning/tree/main/11-%E7%BC%96%E5%86%99loader
 
 如何扩展 `Webpack`？有两种主流方式，一是 `Loader` —— 主要负责将资源内容翻译成 `Webpack` 能够理解、处理的 `JavaScript` 代码；二是 `Plugin` —— 深度介入 `Webpack` 构建过程，**重塑** 构建逻辑。
 

@@ -25,6 +25,11 @@ pre {
 :is(ul, ol) > li {
   line-height: 2rem;
 }
+article {
+  blockquote {
+    word-break: break-all;
+  }
+}
 
 .huangjx-back-top {
   background-color: #fff;
@@ -50,5 +55,20 @@ pre {
   img {
     width: 30px;
     height: 30px;
+  }
+}
+
+/* tabs样式 */
+:root {
+  --docsifytabs-border-color: #ededed;
+  --docsifytabs-tab-highlight-color: #42b983;
+}
+.docsify-tabs {
+  .docsify-tabs__tab {
+    padding: 15px !important;
+  }
+  .docsify-tabs__content {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
 }

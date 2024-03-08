@@ -49,6 +49,11 @@
     - [Webpack 如何提升构建性能](/docs/前端构建工具/Webpack5学习/Webpack如何提升构建性能.md)
     - [Webpack 生产环境优化](/docs/前端构建工具/Webpack5学习/Webpack生产环境优化.md)
     - [Webpack 如何编写 Loader](/docs/前端构建工具/Webpack5学习/Webpack如何编写Loader.md)
+  - Webpack5 实战
+    - [搭建基础的前端工程化项目](/docs/前端构建工具/Webpack5实战/搭建基础的前端工程化项目.md)
+    - [搭建 Vue3 项目的开发环境](/docs/前端构建工具/Webpack5实战/搭建Vue3项目的开发环境.md)
+    - [搭建 React 项目的开发环境](/docs/前端构建工具/Webpack5实战/搭建React项目的开发环境.md)
+  - Vite
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
   - [nvm](/docs/Node相关/nvm.md)
