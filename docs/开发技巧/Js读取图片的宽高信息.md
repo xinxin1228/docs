@@ -1,5 +1,3 @@
-## Js读取文件的宽高信息 支持url和本地文件
-
 > 本案例的完整代码地址：https://github.com/xinxin1228/docs_develop_tips/tree/main/01_js%E8%AF%BB%E5%8F%96%E5%9B%BE%E5%83%8F%E6%96%87%E4%BB%B6%E5%AE%BD%E9%AB%98
 
 在`Web`开发中，有时我们需要获取图片的宽度和高度以便进行一些操作，比如动态设置图片的大小或者进行布局调整。本文将介绍如何使用`JavaScript`来获取图片的宽度和高度。

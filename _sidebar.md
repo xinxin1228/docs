@@ -104,7 +104,10 @@
   - [npm、yarn、pnpm 换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
   - [常用的 AI 网站](/docs/开发技巧/常用的AI网站.md)
   - [Mac 终端配置](/docs/开发技巧/mac终端配置.md)
+  - [多文件拖拽上传和点击上传](/docs/开发技巧/多文件拖拽上传和点击上传.md)
   - [Js 读取图片的宽高信息](/docs/开发技巧/Js读取图片的宽高信息.md)
+  - [项目中如何使用环境变量](/docs/开发技巧/项目中如何使用环境变量.md)
+  - [使用 npm scripts 进行版本管理](/docs/开发技巧/使用npmscripts进行版本管理.md)
 
 - 年终总结
 
