@@ -1,14 +1,14 @@
-`webpack`中的配置项目非常多，一个一个学完很难，关键又很难记住，所以我们先只学会使用较高的配置项即可。至于其他的配置，什么时候用到了什么时候再去[webpack官网](https://webpack.js.org/concepts/)去查吧。
+`webpack`中的配置项目非常多，一个一个学完很难，关键又很难记住，所以我们先只学会使用较多的配置项即可。至于其他的配置，什么时候用到了什么时候再去[webpack官网](https://www.webpackjs.com/concepts/)去查吧。
 
-接下来看一下`webpakc中常用的核心配置`有哪些:
+接下来看一下 **webpakc中常用的核心配置** 有哪些:
 
-- `entry`：声明项目入口文件，`webpack `会从这个文件开始递归找出所有文件依赖。
+- `entry`：声明项目入口文件，`webpack`会从这个文件开始递归找出所有文件依赖。
 - `output`：输出，声明构建结果的存放位置。
 - `target`：用于配置编译产物的目标运行环境，支持 `web`、`node`、`electron` 等值，不同值最终产物会有所差异。
 - `mode`：控制`webpack`的工作模式，影响优化策略和开发工具的行为。支持 `development`、`production` 和`none`，`webpack`会根据该属性推断默认配置。
 - `optimization`：用于控制如何优化产物包体积，内置 `Dead Code Elimination`、`Scope Hoisting`、代码混淆、代码压缩等功能。
 - `module`：用于声明模块加载规则，例如针对什么类型的资源需要使用哪些`loader`进行处理。
-- `plugin`：`webpack`插件列表，它们在构建流程中的各个阶段发挥作用，如压缩代码、生成资源映射表、提取`CSS`文件、注入环境变量等。
+- `plugins：`webpack`插件列表，它们在构建流程中的各个阶段发挥作用，如压缩代码、生成资源映射表、提取`CSS`文件、注入环境变量等。
 
 - `resolve`：定义了`webpack`在查找模块时如何解析模块请求，例如自动补全扩展名、`alias`别名、模块搜索范围等。
 - `devtool`：控制`Source Map`的生成方式，有助于在开发模式对代码进行调试。
@@ -18,10 +18,10 @@
 
 `webpack` 的基本运行逻辑是从 **「入口文件」** 开始，递归加载、构建所有项目资源，所以项目必须使用 `entry` 配置项明确声明项目入口。`entry` 配置规则比较复杂，支持如下形态：
 
-- **字符串【单入口】：**表示单入口打包，打包后，默认生成`main.js`文件，保存在当前目录的`dist`目录。
+- **字符串【单入口】：**表示单入口打包，打包后，默认生成`main.js`文件，保存在当前工作区根目录下的`dist`目录。
 - **对象【多入口】：**对象形态功能比较完备，除了可以指定入口文件列表外，还可以指定入口依赖、`runtime `打包方式等。
 - **数组【单入口】：**表示单入口打包，数组的最后一个文件为打包的入口文件，在打包前会先把数组的其余文件预先加载到入口文件中
-  打包后，默认生成`main.js`文件，保存在当前目录的`dist`目录。
+  打包后，默认生成`main.js`文件，保存在当前根目录下的`dist`目录。
 - **函数【多入口】：**如果入口文件的设置涉及到一些逻辑处理，可以把值设为函数。 函数的返回值可以是**字符串、数组、对象**中的任意一种形式。最后打包的结果与上面三种形式单独写的效果是致的。
 
 ```js
@@ -43,15 +43,15 @@ module.exports = {
             filename: 'bbb.js'
         }
     },
-    // 多入口 函数形式 可返回上面的几种形式
+    // 单｜多入口 函数形式 可返回上面的几种形式
     entry() {
-      // 返回字符串
+      // 返回字符串 单入口
       return './src/a.js',
       
-      // 返回数组
+      // 返回数组 单入口
       return ['./src/a.js', './src/b.js']
     
-      // 返回对象
+      // 返回对象 多入口
       return {
         a: './src/a.js',
         b: './src/b.js',
@@ -104,12 +104,12 @@ output.chunkFilename = '[id].js';
 >
 > 其实，占位符中还有`hash、fullhash、chunkhash、contenthash`值，这些值都是根据文件内生成的唯一的 hash 值。
 
-| hash 值     | 说明                                                       |
-| :---------- | :--------------------------------------------------------- |
-| hash        | 根据打包中所有文件计算出的 hash 值。                       |
-| fullhash    | webpack5 提出的，它用来替代之前的 hash                     |
-| chunkhash   | 根据打包的当前模块（JS)计算出来的 hash 值。                |
-| contenthash | 他与 chunkhash 很像，不过他主要用于计算 CSS 文件的 hash 值 |
+| hash 值     | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| hash        | 指整个构建过程的哈希值，它是基于整个编译过程的所有输入和输出文件计算出来的。当项目中有任何文件改动并重新构建时，无论改动的是哪个文件，整个构建生成的`hash`值都会改变。这意味着如果你在配置中将`hash`添加到输出文件名中，那么每次构建时，所有输出的 bundle（包括主bundle和其他chunk）的文件名都将包含这个全局唯一的哈希值，从而使得所有文件的引用链接都会随着任何微小的更改而更新。 |
+| fullhash    | webpack5 提出的，它用来替代之前的 hash。                     |
+| chunkhash   | 基于chunk（代码切片）生成的哈希值，当某个chunk中的任何一个模块内容发生变化时，都会导致这个chunk生成一个新的chunkhash。意味着即使只有一个模块在chunk内发生了变化，整个chunk对应的文件名（带有chunkhash的部分）也会改变 |
+| contenthash | 基于每个模块的具体内容生成的哈希值。意味着只有当一个模块的实际内容发生改变时，这个模块对应的contenthash才会改变，从而影响到最终输出文件的名字。 |
 
 使用演示：
 
@@ -119,7 +119,7 @@ module.exports = {
   // ...
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: '[name][fullhash:8].js',
+    filename: '[name][contenthash:8].js',
     chunkFilename: "[chunkhash:8].js",
   }
 }
@@ -214,11 +214,9 @@ module.exports = {
 
   - 在一些高级场景下，可以自定义模块的解析器，控制如何解析模块中的导入导出语句。
 
-接下来我们详细介绍和使用一下常用的`loader`都有哪些。
-
 为了不打断进度，避免造成学习和阅读上的心智负担，我将常用的`loader`单独划分出一个章节，避免在这里嵌套太深。
 
-[Webpack中常用的Loader]()（点击即可前往阅读）
+[Webpack中常用的Loader](/docs/前端构建工具/webpack5学习/Webpack中常用的Loader.md)（点击即可前往阅读）
 
 ## plugins
 
@@ -226,7 +224,7 @@ module.exports = {
 
 我将常用的`plugin`单独划分出一个章节，点击下方列表即可前往阅读。
 
-[Webpack中常用的Plugin]()（点击即可前往阅读）
+[Webpack中常用的Plugin](/docs/前端构建工具/webpack5学习/Webpack常用的Plugin.md)（点击即可前往阅读）
 
 ## devtool
 
@@ -245,12 +243,19 @@ module.exports = {
 
 ### production
 
-线上环境官方推荐的 devtool 有4种：
+生产环境官方推荐的 devtool 有4种：
 
 - none
+
 - source-map
+
 - hidden-source-map
-- nosources-source-map 线上环境没有绝对的最优选择一说，根据自己业务需要去选择即可，很多项目也是选择除上述4种之外的 `cheap-module-source-map` 选项。
+
+- nosources-source-map 
+
+生产环境没有绝对的最优选择一说，根据自己业务需要去选择即可，但大多数情况下选择  `nosoucres-cource-map`。
+
+测试环境为了让报错尽可能详细，大多数情况下会选择 `source-map`。
 
 ### development
 
@@ -259,7 +264,9 @@ module.exports = {
 - eval
 - eval-source-map
 - eval-cheap-source-map
-- eval-cheap-module-source-map 大多数情况下我们选择 `eval-cheap-module-source-map` 即可。
+- eval-cheap-module-source-map 
+
+大多数情况下我们选择 `eval-cheap-module-source-map` 即可。
 
 因此最后我们选择：
 
@@ -340,8 +347,8 @@ module.exports = {
   // ...
   resolve: {
   	alias: {
-      '@': path.resolve(__dirname, '@'),
-    	'@components': path.resolve(__dirname, 'src/components'),
+      '@': path.resolve(__dirname, 'src'),
+      '@components': path.resolve(__dirname, 'src/components'),
   	}
 	}
 }

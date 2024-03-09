@@ -15,7 +15,7 @@
 │   │   ├── LessCom.vue
 │   │   ├── SassCom.vue
 │   │   ├── ScssCom.vue
-│   │   └── index.js
+│   │   └── index.ts
 │   ├── img
 │   │   ├── 01.jpg
 │   │   └── 02.jpg
@@ -104,7 +104,7 @@ $ pnpm add vue-router
 
 ```vue
 <template>
-  <h1>这是 Article 页面</h1>
+  <h1>这是 Home 页面</h1>
 </template>
 
 <script setup></script>

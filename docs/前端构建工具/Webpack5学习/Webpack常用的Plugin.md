@@ -32,7 +32,7 @@ module.exports = {
       template: path.resolve(__dirname, 'public/index.html'),
       // 压缩html文件
       minify: {
-      	removeComments: true, // 移除HTML中的注释
+        removeComments: true, // 移除HTML中的注释
         collapseWhitespace: true, // 删除空白符与换行符
         minifyCSS: true, // 压缩内联css
       }

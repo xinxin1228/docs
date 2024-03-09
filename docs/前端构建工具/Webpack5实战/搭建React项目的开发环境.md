@@ -761,7 +761,7 @@ declare module '*.gif'
 declare module '*.svg'
 ```
 
-### 重构 Pinia
+### 重构 Store 结构
 
 目录如下：
 

@@ -1,4 +1,4 @@
-在初体验（添加初体验的地址hash值）中，我们见识到了`webpack.config.js`写法中的一种方式：就是导出**单个配置对象**的方法实现。
+在 <u>[初体验](/docs/前端构建工具/webpack5学习/Webpack配置项总览以及初体验.md)</u> 中，我们见识到了`webpack.config.js`写法中的一种方式：就是导出**单个配置对象**的方法实现。
 
 ```js
 // webpack.config.js
@@ -154,7 +154,7 @@ module.exports = function(env, argv) {
 | 命令：                                    | `env` 参数值： | `argv`参数值：                      |
 | ----------------------------------------- | -------------- | ----------------------------------- |
 | npx webpack --env prod --mode development | { prod: true } | { env: {...}, mode: 'development' } |
-| npx webpack --mode production             | { prod: true } | { mode: 'development' }             |
+| npx webpack --mode production             | {  }           | { env: {},  mode: 'development' }   |
 
 “**配置函数**”这种方式的意义在于，允许用户根据命令行参数动态创建配置对象，可用于实现简单的多环境治理策略。
 
@@ -172,7 +172,7 @@ module.exports = function (env, args) {
   return {
     mode: env.dev ? 'development' : 'production',
     entry: './src/index.js',
-    devtool: env.dev ? 'source-map' : 'nosources-source-map',
+    devtool: env.dev ? 'eval-cheap-module-source-map' : 'nosources-source-map',
     plugins: [
       new HtmlWebpackPlugin({
         template: './public/index.html',
@@ -250,7 +250,7 @@ module.exports = merge(commConfig, {
     port: 8080,
     hot: true,
   },
-  devtool: 'source-map',
+  devtool: 'eval-cheap-module-source-map',
 })
 
 ```

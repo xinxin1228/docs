@@ -10,7 +10,7 @@
 
 > 默认在 `Webpack5` 中，当我们**开启生产环境**打包时，`JS` 代码会自动做压缩处理，并不需要做任何配置。
 
-是因为在安装 `Webpack5` 时，会自动安装`terser-webpack-plugin`插件，同时在生产环境下打包时，`Webpack5` 会自动使用这个插件来对` JS` 做压缩处理。
+是因为在安装 `Webpack5` 时，会自动安装`terser-webpack-plugin`插件，同时在生产环境下打包时，`Webpack5` 会自动使用这个插件来对`JS` 做压缩处理。
 
 如果我们不想在生产环境打包时，对 `JS` 做压缩处理，我们只需要`webpack.config.js`文件中添加如下配置，就可以。
 
@@ -41,7 +41,7 @@ module.exports = {
 $ pnpm add css-minimizer-webpack-plugin -D
 ```
 
-接下来，我只按以下步骤修改`webpack.config.js`文件，来完成相关插件配置就可以
+接下来，按以下步骤修改`webpack.config.js`文件，来完成相关插件配置即可。
 
 - 使用`require`方法，来加载插件
 - 在`optimization`选项中通过`minimize`和`minimizer`属性，告诉 Webpack 需要使用`minimizer`中的插件来压缩代码。

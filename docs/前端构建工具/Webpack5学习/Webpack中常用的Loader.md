@@ -29,7 +29,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
@@ -165,9 +165,9 @@ module.exports = {
 
 经过 `style-loader` + `css-loader` 处理后，样式代码最终会被写入 `Bundle` 文件，并在运行时通过 `style` 标签注入到页面。这种将 `JS`、`CSS` 代码合并进同一个产物文件的方式有几个问题：
 
-**-** `JS`、`CSS` 资源无法并行加载，从而降低页面性能；
+- `JS`、`CSS` 资源无法并行加载，从而降低页面性能；
 
-**-** 资源缓存粒度变大，`JS`、`CSS` 任意一种变更都会致使缓存失效。
+- 资源缓存粒度变大，`JS`、`CSS` 任意一种变更都会致使缓存失效。
 
 因此，**生产环境**中通常会用 `mini-css-extract-plugin`插件替代 `style-loader`，将样式代码抽离成单独的 `CSS` 文件。
 
@@ -254,7 +254,7 @@ module.exports = {
     module: {
         rules: [
           {
-            test: /\.less$/,
+            test: /\.s[ac]ss$/,
             use: ['style-loader', 'css-loader', 'sass-loader']
         	}
         ]
@@ -294,7 +294,7 @@ module.exports = {
 }
 ```
 
-不过，这个时候的 `PostCSS` 还只是个空壳，下一步还需要使用适当的 `PostCSS` 插件进行具体的功能处理，例如我们可以使用 `[`**autoprefixer**`]`(自动补充浏览器前缀)。
+不过，这个时候的 `PostCSS` 还只是个空壳，下一步还需要使用适当的 `PostCSS` 插件进行具体的功能处理，例如我们可以使用 **autoprefixer**(自动补充浏览器前缀)。
 
 安装：
 

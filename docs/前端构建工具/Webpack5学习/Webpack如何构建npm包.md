@@ -151,7 +151,7 @@ module.exports = {
   -    	type: "umd",
   -  	},
   +  	library: '_',
-  +	  libraryType: 'umd'
+  +	  libraryTarget: 'umd'
 	},
 }
 ```
