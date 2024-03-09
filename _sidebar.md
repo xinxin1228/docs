@@ -108,6 +108,7 @@
   - [Js 读取图片的宽高信息](/docs/开发技巧/Js读取图片的宽高信息.md)
   - [项目中如何使用环境变量](/docs/开发技巧/项目中如何使用环境变量.md)
   - [使用 npm scripts 进行版本管理](/docs/开发技巧/使用npmscripts进行版本管理.md)
+  - [VsCode 操作技巧](/docs/开发技巧/VsCode操作技巧.md)
 
 - 年终总结
 
