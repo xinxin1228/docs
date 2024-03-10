@@ -47,6 +47,30 @@
 
 - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
 
+### 前端构建工具
+
+#### Webpack5 学习
+
+- [Webpack 是什么](/docs/前端构建工具/Webpack5学习/Webpack是什么.md)
+- [Webpack 配置项总览以及初体验](/docs/前端构建工具/Webpack5学习/Webpack配置项总览以及初体验.md)
+- [Webpack 配置结构的多种写法](/docs/前端构建工具/Webpack5学习/Webpack配置结构的多种写法.md)
+- [Webpack 常用的核心配置](/docs/前端构建工具/Webpack5学习/Webpack常用的核心配置.md)
+- [Webpack 中常用的 Loader](/docs/前端构建工具/Webpack5学习/Webpack中常用的Loader.md)
+- [Webpack 常用的 Plugin](/docs/前端构建工具/Webpack5学习/Webpack常用的Plugin.md)
+- [Webpack 如何加载图像](/docs/前端构建工具/Webpack5学习/Webpack如何加载图像.md)
+- [Webpack 如何压缩代码](/docs/前端构建工具/Webpack5学习/Webpack如何压缩代码.md)
+- [Webpack 开发 PWA 应用](/docs/前端构建工具/Webpack5学习/Webpack开发PWA应用.md)
+- [Webpack 如何构建 npm 包](/docs/前端构建工具/Webpack5学习/Webpack如何构建npm包.md)
+- [Webpack 如何提升构建性能](/docs/前端构建工具/Webpack5学习/Webpack如何提升构建性能.md)
+- [Webpack 生产环境优化](/docs/前端构建工具/Webpack5学习/Webpack生产环境优化.md)
+- [Webpack 如何编写 Loader](/docs/前端构建工具/Webpack5学习/Webpack如何编写Loader.md)
+
+#### Webpack5 实战
+
+- [搭建基础的前端工程化项目](/docs/前端构建工具/Webpack5实战/搭建基础的前端工程化项目.md)
+- [搭建 Vue3 项目的开发环境](/docs/前端构建工具/Webpack5实战/搭建Vue3项目的开发环境.md)
+- [搭建 React 项目的开发环境](/docs/前端构建工具/Webpack5实战/搭建React项目的开发环境.md)
+
 ### Node 相关
 
 - [包管理工具](/docs/Node相关/包管理工具.md)
@@ -92,5 +116,12 @@
 ### 开发技巧
 
   - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
-  - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
-  - [npm、yarn、pnpm换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
+- [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
+- [npm、yarn、pnpm 换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
+- [常用的 AI 网站](/docs/开发技巧/常用的AI网站.md)
+- [Mac 终端配置](/docs/开发技巧/mac终端配置.md)
+- [多文件拖拽上传和点击上传](/docs/开发技巧/多文件拖拽上传和点击上传.md)
+- [Js 读取图片的宽高信息](/docs/开发技巧/Js读取图片的宽高信息.md)
+- [项目中如何使用环境变量](/docs/开发技巧/项目中如何使用环境变量.md)
+- [使用 npm scripts 进行版本管理](/docs/开发技巧/使用npmscripts进行版本管理.md)
+- [VsCode 操作技巧](/docs/开发技巧/VsCode操作技巧.md)

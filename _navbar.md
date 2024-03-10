@@ -7,37 +7,23 @@
 
   - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
-  - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
   - [计算机网络](/docs/前端笔记/计算机网络.md)
   - [Webpack 搭建工程化项目](/docs/前端笔记/Webpack搭建工程化项目.md)
   - [Vite 搭建工程化项目](/docs/前端笔记/Vite搭建工程化项目.md)
-- 前端框架
-
-  - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
-  - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
-  - [Vue3 项目搭建](/docs/前端框架/Vue/Vue3项目搭建.md)
-  - [React18+JavaScript](/docs/前端框架/React/React18+JavaScript.md)
-  - [React18+TypeScript](/docs/前端框架/React/React18+TypeScript.md)
-  - [qiankun 使用](/docs/前端框架/qiankun/qiankun.md)
 - Node 相关
   - [包管理工具](/docs/Node相关/包管理工具.md)
   - [nvm](/docs/Node相关/nvm.md)
   - [Express](/docs/Node相关/Express.md)
   - [Koa](/docs/Node相关/Koa.md)
   - [NestJs](/docs/Node相关/NestJs.md)
-- 数据库
-
-  - [MongoDB](/docs/数据库/MongoDB.md)
-  - [MySQL](/docs/数据库/MySQL.md)
-  - [Redis](/docs/数据库/Redis.md)
 - Git 和 GitHub
 
   - [Git 总结](/docs/Git和GitHub/Git总结.md)
   - [GitHub 操作指南](/docs/Git和GitHub/GitHub操作指南.md)
-- Shell学习
+- Shell 学习
   - [基本用法](/docs/Shell学习/基本用法.md)
   - [常用快捷键](/docs/Shell学习/常用快捷键.md)
   - [常用的命令关键词](/docs/Shell学习/常用的命令关键词.md)
@@ -49,6 +35,12 @@
   - [循环](/docs/Shell学习/循环.md)
   - [函数](/docs/Shell学习/函数.md)
   - [数组](/docs/Shell学习/数组.md)
+- Docker 学习
+  - [Docker 介绍及安装](/docs/Docker学习/Docker介绍及安装.md)
+  - [Docker 常用指令指南](/docs/Docker学习/Docker常用指令指南.md)
+  - [容器快速上手](/docs/Docker学习/容器快速上手.md)
+  - [镜像快速上手](/docs/Docker学习/镜像快速上手.md)
+  - [Dockerfile 快速上手](/docs/Docker学习/Dockerfile快速上手.md)
 - 服务器相关
   - [Nginx](/docs/服务器相关/Nginx.md)
   - [Pm2](/docs/服务器相关/Pm2.md)
@@ -60,10 +52,11 @@
 
   - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
   - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
-  - [npm、yarn、pnpm换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
-  - [常用的AI网站](/docs/开发技巧/常用的AI网站.md)
-- 年终总结
-
-  - 2023 年年终总结
-- 随心所记
-  - 关于程序员寒冬的思考
+  - [npm、yarn、pnpm 换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
+  - [常用的 AI 网站](/docs/开发技巧/常用的AI网站.md)
+  - [Mac 终端配置](/docs/开发技巧/mac终端配置.md)
+  - [多文件拖拽上传和点击上传](/docs/开发技巧/多文件拖拽上传和点击上传.md)
+  - [Js 读取图片的宽高信息](/docs/开发技巧/Js读取图片的宽高信息.md)
+  - [项目中如何使用环境变量](/docs/开发技巧/项目中如何使用环境变量.md)
+  - [使用 npm scripts 进行版本管理](/docs/开发技巧/使用npmscripts进行版本管理.md)
+  - [VsCode 操作技巧](/docs/开发技巧/VsCode操作技巧.md)
