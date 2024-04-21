@@ -221,6 +221,16 @@ await user.create({
 })();
 ```
 
+### 查询返回纯对象的数据
+
+默认 `mongoose` 调用 `find` 类型的查询语句后，返回的是一个包装类型的，真正的数据在 `._doc` 中，我们可以直接返回真实的数据，这样还可以节省性能。只需要在查询的后面拼接上一个链式调用的 `.lean()` 即可。
+
+```js
+const doc = await articleDB.find().lean()
+```
+
+
+
 ### 数据删除
 
 ```js
@@ -729,5 +739,56 @@ return await travelsDB.find(
     }
   }
 );
+```
+
+### 设置插件
+
+```js
+// 创建插件
+import type { Schema } from "mongoose";
+
+// 创建一个Mongoose插件 使其查询后的返回值是标准的javaScript对象
+export function globalLean(schema: Schema) {
+  // schema.query.leanByDefault = true;
+
+  schema.pre("find", function () {
+    this.lean();
+  });
+
+  schema.pre("findOne", function () {
+    this.lean();
+  });
+}
+
+
+
+
+// 使用插件
+import { globalLean } from "@/utils/mongoPlugin";
+
+
+export interface IFileEntityDB {
+  name: string;
+  folder: Schema.Types.ObjectId;
+  author: Schema.Types.ObjectId;
+  size: number;
+  type: string;
+  url: string;
+  status: StatusType;
+  create_time: Date;
+  update_time: Date;
+}
+
+const fileSchema = new Schema<IFileEntityDB>({
+  name: { type: String, required: true },
+  ...
+});
+
+// 注册插件
+fileSchema.plugin(globalLean);
+
+export const fileEntityDB = mongoose.model<IFileEntityDB>("file_entity", fileSchema);
+
+
 ```
 

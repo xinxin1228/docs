@@ -5,8 +5,6 @@
   - [API 接口规范](/docs/项目规范和风格/API接口规范.md)
 - 前端笔记
 
-  - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
-  - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
     - [渲染自定义组件](/docs/前端笔记/JavaScript实战练习/渲染自定义组件.md)
     - [Store 实现多个 class 之间数据共享](/docs/前端笔记/JavaScript实战练习/Store实现多个class之间数据共享.md)
@@ -15,6 +13,8 @@
     - [原生的 Ajax 实现有进度的文件上传与下载](/docs/前端笔记/JavaScript实战练习/原生的Ajax实现有进度的文件上传与下载.md)
     - [手写类似 pubsub-js 的事件队列库](/docs/前端笔记/JavaScript实战练习/手写类似pubsub-js的事件队列库.md)
     - [手写 Axios](/docs/前端笔记/JavaScript实战练习/手写Axios.md)
+  - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
+  - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
   - [Webpack](/docs/前端笔记/Webpack.md)
   - [微信小程序](/docs/前端笔记/微信小程序.md)
@@ -79,6 +79,7 @@
   - [GitHub 操作指南](/docs/Git和GitHub/GitHub操作指南.md)
 
 - Shell 学习
+
   - [基本用法](/docs/Shell学习/基本用法.md)
   - [常用快捷键](/docs/Shell学习/常用快捷键.md)
   - [常用的命令关键词](/docs/Shell学习/常用的命令关键词.md)
@@ -90,6 +91,7 @@
   - [循环](/docs/Shell学习/循环.md)
   - [函数](/docs/Shell学习/函数.md)
   - [数组](/docs/Shell学习/数组.md)
+
 - 服务器相关
   - [Nginx](/docs/服务器相关/Nginx.md)
   - [Pm2](/docs/服务器相关/Pm2.md)
@@ -106,6 +108,9 @@
   - [Mac 终端配置](/docs/开发技巧/mac终端配置.md)
   - [多文件拖拽上传和点击上传](/docs/开发技巧/多文件拖拽上传和点击上传.md)
   - [Js 读取图片的宽高信息](/docs/开发技巧/Js读取图片的宽高信息.md)
-  - [项目中如何使用环境变量](/docs/开发技巧/项目中如何使用环境变量.md)
+  - [Node 中如何使用环境变量](/docs/开发技巧/Node中如何使用环境变量.md)
   - [使用 npm scripts 进行版本管理](/docs/开发技巧/使用npmscripts进行版本管理.md)
   - [VsCode 操作技巧](/docs/开发技巧/VsCode操作技巧.md)
+  - [使用阿里云 OSS 进行文件的传输](/docs/开发技巧/使用阿里云OSS进行文件的传输.md)
+  - [Docker 切换镜像源](/docs/开发技巧/Docker切换镜像源.md)
+  - [文件的下载与压缩 Zip 下载](/docs/开发技巧/文件的下载与压缩Zip下载.md)
