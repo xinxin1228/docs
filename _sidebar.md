@@ -124,3 +124,4 @@
   - [Docker 切换镜像源](/docs/开发技巧/Docker切换镜像源.md)
   - [文件的下载与压缩 Zip 下载](/docs/开发技巧/文件的下载与压缩Zip下载.md)
   - [Node中通过脚本生成模版文件](/docs/开发技巧/Node中通过脚本生成模版文件.md)
+  - [从零搭建一个Monorepo项目](/docs/开发技巧/从零搭建一个Monorepo项目.md)
