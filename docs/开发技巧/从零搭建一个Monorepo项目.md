@@ -270,6 +270,8 @@ $ pnpm --filter app1 add @monorepo/common --workspace
 $ pnpm --filter app2 add @monorepo/common --workspace
 ```
 
+> 在使用 `pnpm --filter` 或 `-F` 时，后面跟的是包的 `package.json` 中的 `name` 字段，而不是包的目录名。
+
 然后更改 `app1` 和 `app2` 下的 `index.js`  和 `package.json`。
 
 <!-- tabs:start -->
