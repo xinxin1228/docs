@@ -1,6 +1,4 @@
-## 常见的效果
-
-### 设置全局 css 变量
+## 设置全局 css 变量
 
 ```css
 // 变量声明
@@ -15,7 +13,7 @@ div {
 }
 ```
 
-### 骨架屏加载
+## 骨架屏加载
 
 ```css
 :root {
@@ -67,7 +65,7 @@ div {
 }
 ```
 
-### 平行四边形
+## 平行四边形
 
 ```css
 .box {
@@ -75,7 +73,7 @@ div {
 }
 ```
 
-### 英文字母大小写
+## 英文字母大小写
 
 ```css
 // 英文字母全部大写
@@ -88,7 +86,7 @@ text-transform: lowercase;
 text-transform: capitalize；;
 ```
 
-### 动画延迟执行
+## 动画延迟执行
 
 ```css
 transition-delay: 0.4s;
@@ -96,7 +94,7 @@ transition-delay: 0.4s;
 // 适用于transition类型的动画
 ```
 
-### 设置动画旋转中心
+## 设置动画旋转中心
 
 ```css
 transform-origin: top left; // 改为左上为旋转中心点
@@ -104,14 +102,14 @@ transform-origin: top left; // 改为左上为旋转中心点
 // 默认是 center center
 ```
 
-### 动画结束后停留在动画结束的位置
+## 动画结束后停留在动画结束的位置
 
 ```css
 // 设置 forwards 参数可以使动画停留在结束的位置
 animation: selected 0.3s linear forwards;
 ```
 
-### css 选择除最后一个以外的全部元素
+## css 选择除最后一个以外的全部元素
 
 ```css
 li {
@@ -121,7 +119,7 @@ li {
 }
 ```
 
-### less中引用自己
+## less中引用自己
 
 ```less
 body{
@@ -142,7 +140,7 @@ body{
 }
 ```
 
-### 自定义滚动条样式
+## 自定义滚动条样式
 
 ```js
 //滚动条样式

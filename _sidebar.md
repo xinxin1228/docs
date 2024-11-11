@@ -13,7 +13,10 @@
     - [原生的 Ajax 实现有进度的文件上传与下载](/docs/前端笔记/JavaScript实战练习/原生的Ajax实现有进度的文件上传与下载.md)
     - [手写类似 pubsub-js 的事件队列库](/docs/前端笔记/JavaScript实战练习/手写类似pubsub-js的事件队列库.md)
     - [手写 Axios](/docs/前端笔记/JavaScript实战练习/手写Axios.md)
-  - [HTML 和 CSS](/docs/前端笔记/HTML和CSS.md)
+  - HTML 和 CSS系列
+    - [HTML标签篇](/docs/前端笔记/HTML和CSS系列/HTML标签篇.md)
+    - [详解 CSS 选择器](/docs/前端笔记/HTML和CSS系列/详解CSS选择器.md)
+    - [常见的CSS效果](/docs/前端笔记/HTML和CSS系列/常见的CSS效果.md)
   - [JavaScript](/docs/前端笔记/JavaScript.md)
   - [TypeScript](/docs/前端笔记/TypeScript.md)
   - [Webpack](/docs/前端笔记/Webpack.md)
