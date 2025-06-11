@@ -375,6 +375,35 @@ p {
 > .d1 是 yellow
 > .p1 是 red
 
+### 4.7 :not()
+
+`:not()` 是 CSS 中的一个伪类选择器，用于选择不符合指定条件的元素。它允许你排除某些特定的元素，从而应用样式到其他元素上。
+
+```html
+<h1 class="a">这是一个标题</h1>
+<p class="a">这是一个段落。</p>
+<div class="b">这是一个 div 元素。</div>
+<span class="a">这是一个 span 元素。</span>
+```
+
+```css
+body *:not(p) {
+    background-color: #f0f0f0;
+    padding: 5px;
+    margin: 5px;
+}
+```
+
+> 设置 body 下所有除去<p>标签之外的所有标签的样式
+
+```css
+ body *:not(.a) {
+    background: red;
+}
+```
+
+> 设置 body 下所有除去类名为 .a 之外的所有类的样式
+
 ## 5. 伪元素选择器
 
 伪元素用于选择元素的特定部分，例如首字母、首行等。
