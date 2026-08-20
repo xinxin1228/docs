@@ -4,7 +4,6 @@
   - [Git 规范](/docs/项目规范和风格/Git规范.md)
   - [API 接口规范](/docs/项目规范和风格/API接口规范.md)
 - 前端笔记
-
   - [JavaScript 实战练习](/docs/前端笔记/JavaScript实战练习.md)
     - [渲染自定义组件](/docs/前端笔记/JavaScript实战练习/渲染自定义组件.md)
     - [Store 实现多个 class 之间数据共享](/docs/前端笔记/JavaScript实战练习/Store实现多个class之间数据共享.md)
@@ -26,7 +25,6 @@
   - [Vite 搭建工程化项目](/docs/前端笔记/Vite搭建工程化项目.md)
 
 - 前端框架
-
   - Vue
     - [Vue3+JavaScript](/docs/前端框架/Vue/Vue3+JavaScript.md)
     - [Vue3+TypeScript](/docs/前端框架/Vue/Vue3+TypeScript.md)
@@ -64,7 +62,6 @@
   - [Koa](/docs/Node相关/Koa.md)
   - [NestJs](/docs/Node相关/NestJs.md)
 - 数据库
-
   - [MongoDB](/docs/数据库/MongoDB.md)
   - MySQL
     - 基本概述和安装
@@ -77,7 +74,6 @@
   - [Redis](/docs/数据库/Redis.md)
 
 - Git 和 GitHub
-
   - [Git 总结](/docs/Git和GitHub/Git总结.md)
   - [GitHub 操作指南](/docs/Git和GitHub/GitHub操作指南.md)
 
@@ -101,7 +97,7 @@
   - [Dockerfile 快速上手](/docs/Docker学习/Dockerfile快速上手.md)
   - [Docker 管理数据](/docs/Docker学习/Docker管理数据.md)
   - [Docker 网络](/docs/Docker学习/Docker网络.md)
-  - [Docker Compose]()
+  <!-- - [Docker Compose](/docs/Docker学习/DockerCompose.md) -->
   - [Docker 搭建本地 Node 开发环境](/docs/Docker学习/Docker搭建本地Node开发环境.md)
   - [Docker 常见问题](/docs/Docker学习/Docker常见问题.md)
 - 服务器相关
@@ -112,7 +108,6 @@
   - [MySql8.0](/docs/服务器相关/MySQL8.0.md)
   - [Node](/docs/服务器相关/Node.md)
 - 开发技巧
-
   - [解决 Mac 运行 sh 文件闪退](/docs/开发技巧/解决Mac运行sh文件闪退.md)
   - [打包忽略 eslint 的错误](/docs/开发技巧/打包忽略eslint的错误.md)
   - [npm、yarn、pnpm 换源](/docs/开发技巧/npm、yarn、pnpm换源.md)
@@ -128,3 +123,42 @@
   - [文件的下载与压缩 Zip 下载](/docs/开发技巧/文件的下载与压缩Zip下载.md)
   - [Node中通过脚本生成模版文件](/docs/开发技巧/Node中通过脚本生成模版文件.md)
   - [从零搭建一个Monorepo项目](/docs/开发技巧/从零搭建一个Monorepo项目.md)
+
+- Java 学习
+  - [Java 学习路线](/docs/Java学习/Java学习路线.md)
+  - Java 基础
+    - [JDK 环境搭建与 IDE 配置](/docs/Java学习/Java基础/JDK环境搭建与IDE配置.md)
+    - [基础语法](/docs/Java学习/Java基础/基础语法.md)
+    - [面向对象](/docs/Java学习/Java基础/面向对象.md)
+    - [常用类与字符串](/docs/Java学习/Java基础/常用类与字符串.md)
+    - [集合框架](/docs/Java学习/Java基础/集合框架.md)
+    - [泛型](/docs/Java学习/Java基础/泛型.md)
+    - [异常处理](/docs/Java学习/Java基础/异常处理.md)
+    - [注解与反射](/docs/Java学习/Java基础/注解与反射.md)
+    - [Lambda 与 Stream](/docs/Java学习/Java基础/Lambda与Stream.md)
+    - [新特性](/docs/Java学习/Java基础/新特性.md)
+  - Java 进阶
+    - [JVM](/docs/Java学习/Java进阶/JVM.md)
+    - [并发编程](/docs/Java学习/Java进阶/并发编程.md)
+    - [IO 与 NIO](/docs/Java学习/Java进阶/IO与NIO.md)
+    - [设计模式](/docs/Java学习/Java进阶/设计模式.md)
+  - 构建工具
+    - [Maven 基础](/docs/Java学习/构建工具/Maven基础.md)
+    - [Maven 依赖管理与多模块](/docs/Java学习/构建工具/Maven依赖管理与多模块.md)
+  - Spring 生态
+    - [Spring 核心 IOC 与 AOP](/docs/Java学习/Spring生态/Spring核心IOC与AOP.md)
+    - [Spring Boot 快速上手](/docs/Java学习/Spring生态/SpringBoot快速上手.md)
+    - [Spring MVC 与 RESTful 接口](/docs/Java学习/Spring生态/SpringMVC与RESTful接口.md)
+    - [参数校验与全局异常处理](/docs/Java学习/Spring生态/参数校验与全局异常处理.md)
+    - [Spring Data JPA](/docs/Java学习/Spring生态/SpringDataJPA.md)
+    - [MyBatis 与 MyBatis-Plus](/docs/Java学习/Spring生态/MyBatis与MyBatisPlus.md)
+    - [配置管理与多环境](/docs/Java学习/Spring生态/配置管理与多环境.md)
+    - [Spring Security](/docs/Java学习/Spring生态/SpringSecurity.md)
+  - 数据库集成
+    - [Flyway 版本迁移](/docs/Java学习/数据库集成/Flyway版本迁移.md)
+    - [MySQL 与 Java 集成](/docs/Java学习/数据库集成/MySQL与Java集成.md)
+    - [Redis 集成](/docs/Java学习/数据库集成/Redis集成.md)
+  - 项目实战
+    - [从零搭建 SpringBoot 项目](/docs/Java学习/项目实战/从零搭建SpringBoot项目.md)
+    - [用户模块接口开发案例](/docs/Java学习/项目实战/用户模块接口开发案例.md)
+- AI 相关

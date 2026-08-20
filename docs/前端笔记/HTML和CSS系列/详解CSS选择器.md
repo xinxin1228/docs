@@ -158,6 +158,7 @@ h2 ~ p {
 
 ```html
 <a href="https://example.com">Example</a>
+<a href="https://google.com a">Google a</a>
 <a href="https://google.com">Google</a>
 ```
 
